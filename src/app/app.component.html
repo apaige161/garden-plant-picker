@@ -6,7 +6,7 @@
     <!-- plant list -->
     <div class="col col-lg-6">
       <div *ngFor="let item of plants; index as i">
-        <div class="container grid">
+        <div class="grid">
           <p>{{item}}</p>
           <button (click)="addToGarden(i)" class="btn btn-primary mb-1">Add</button>
         </div>
@@ -18,10 +18,10 @@
   <!-- plants in virtual garden-->
 
     <div class="col col-lg-6">
-      <div *ngFor="let item of garden">
+      <div *ngFor="let item of garden; index as i">
         <div class="container grid">
           <p>{{item}}</p>
-          <button class="btn btn-primary mb-1">Remove</button>
+          <button (click)="removeFromGarden(i)" class="btn btn-primary mb-1">Remove</button>
         </div>
       </div>
     </div>

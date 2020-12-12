@@ -36,6 +36,9 @@ export class AppComponent {
     this.garden.push(this.plants[plantToAdd]);
   }
 
+  removeFromGarden(removePlant: number) {
+    this.garden.splice(removePlant, 1);
+  }
 
   
   //initialize an array with 9 places and set each item as 'empty'
