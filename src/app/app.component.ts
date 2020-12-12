@@ -40,6 +40,10 @@ export class AppComponent {
     this.garden.splice(removePlant, 1);
   }
 
+  clearGarden() {
+    this.garden = [];
+  }
+
   
   //initialize an array with 9 places and set each item as 'empty'
   itemArray: string[] = new Array(9).fill('empty');
