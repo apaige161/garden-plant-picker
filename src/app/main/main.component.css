@@ -1,0 +1,20 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+  }
+
+  .garden-box {
+    border: dotted brown 4px;
+  }
+
+  .raised-bed, .radio {
+    border: dotted tomato 5px;
+    padding: 2rem;
+    margin: 20px 0;
+  }
+
+  .raised-bed-col{
+    text-align: center;
+    margin-bottom: 15px;
+  }

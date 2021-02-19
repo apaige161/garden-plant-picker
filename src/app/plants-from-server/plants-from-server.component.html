@@ -1,0 +1,36 @@
+
+<!-- code for only single plant from database -->
+<div class="http">
+
+    <!-- call api -->
+    <button (click) = "getPlants()" class="btn btn-primary">Get Gardens</button>
+
+    <!-- loop over results -->
+    <div *ngFor="let plant of plants | async">
+      <p>
+        {{ plant.plant }}
+        
+        <!-- delete call api -->
+        <button (click)="deletePlant(plant._id)" class="btn btn-primary">Delete Plant, id: {{ plant._id }}</button>
+      </p>
+      
+    </div>
+
+
+    <!-- call api -->
+    <button  class="btn btn-primary">Create Plant</button>
+    <div *ngIf="newPlant">
+        {{ newPlant | async | json}}
+    </div>
+    
+    
+    
+</div>
+
+
+<!-- code for only single plant-array from database -->
+
+<div class="http">
+
+    
+</div>

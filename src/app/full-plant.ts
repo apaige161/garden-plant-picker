@@ -1,6 +1,6 @@
 export interface FullPlant {
-    plant: string;
-    season: string;
-    perFoot: number;
-    zone: string
+    plant: string,
+    season: string,
+    perFoot: number,
+    zone: string,
 }

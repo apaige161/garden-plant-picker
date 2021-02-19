@@ -1,16 +1,15 @@
 import { Component, Input } from '@angular/core';
-import { IconSeedlingComponent } from './icon-seedling/icon-seedling.component';
-import { FullPlant } from './full-plant';
+import { FullPlant } from './../full-plant';
 
 import { HttpClient } from '@angular/common/http';
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.css']
 })
-export class AppComponent {
+export class MainComponent {
 
   /**
    * App allows user to: 
@@ -29,12 +28,6 @@ export class AppComponent {
    * 
    * 
    */
-
-
-   
-
-
-
 
 
   @Input()

@@ -1,0 +1,278 @@
+<div class="container">
+
+    <app-plants-api></app-plants-api>
+  
+    <div class="row justify-content-center align-items-center">
+  
+      <!-- radio buttons to choose xGardenMax-->
+      <div class="radio col-6">
+        <h1>Width</h1>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio1" value=1>
+          <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio2" value=2>
+          <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio3" value=3>
+          <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio4" value=4  >
+          <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        
+    
+      <!-- radio buttons to choose yGardenMax-->
+        <h1>Length</h1>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio1" value=1>
+          <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio2" value=2>
+          <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio3" value=3>
+          <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio4" value=4>
+          <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio1" value=5>
+          <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio2" value=6>
+          <label class="form-check-label" for="inlineRadio5">6</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio7" value=7>
+          <label class="form-check-label" for="inlineRadio7">7</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio4" value=8>
+          <label class="form-check-label" for="inlineRadio8">8</label>
+        </div>
+      </div>
+      <div class="col-6">
+        <h1>The raised bed is {{xGardenMax}}' x {{yGardenMax}}'</h1>
+      </div>
+    </div>
+  
+  
+    <div class="row justify-content-center align-items-center">
+  
+      <!-- plant list -->
+      <div class="col col-lg-6">
+        <p>Click the plant for more info.</p>
+        <div *ngFor="let item of fullPlant; index as i">
+          <div class="grid">
+            <button type="button" class="btn btn-success mb-1"
+              popover="Plant {{item.perFoot}} per foot in {{item.season}}. Zone: {{item.zone}}"
+              [outsideClick]="true">
+              {{item.plant}}
+            </button>
+            <button (click)="addToGarden(i)" class="btn btn-primary mb-1">Add</button>
+          </div>
+        </div>
+        <div *ngIf="this.garden.length >= 8">
+          <p>Cannot stage any more plants in this column</p>
+          <p>Add these to your garden to start a new column</p>
+        </div>
+      </div>
+    
+      
+  
+  
+    <!-- plants in virtual garden-->
+      <div class="col col-lg-6 garden-box">
+        <div *ngIf="!gardenfull()">
+          <h4>Start by adding {{xGardenMax}} plants</h4>
+        </div>
+        <div *ngIf="gardenfull()">
+          <h3>Stage Plants Here</h3>
+          <button (click)="createNewGardenCol()" class="btn btn-info mb-1">Add to Garden</button>
+        </div>
+        <div *ngFor="let item of garden; index as i">
+          <div class="container grid">
+            <p>{{i + 1}}</p>
+            <button type="button" class="btn btn-success mb-1"
+              popover="Plant {{item.perFoot}} per foot in {{item.season}}"
+              [outsideClick]="true">
+              {{item.plant}}
+            </button>
+            <button (click)="removeFromGarden(i)" class="btn btn-primary mb-1">Remove</button>
+          </div>
+        </div>
+        <button (click)="clearGarden()" class="btn btn-info mb-1">Remove All</button>
+        
+      </div>
+    </div>
+      
+  
+  
+    <!-- Displays the number of columns based on user input -->
+    <!-- Creates a full garden bed -->
+     
+    <div class="row raised-bed">
+  
+      <!-- name only -->
+      <div class="container">
+        <h2>Name this garden bed:</h2>
+        <input type="text" #box />
+        <button (click)="saveName(box.value)" (click)="storePlantArrays()" class="btn btn-primary">Save</button>
+        <h4>NAME: <span>{{gardenName}}</span></h4>
+      </div>
+      
+    
+      <!-- displays only when  one col is displayed -->
+      <div class="col-3 raised-bed-col" >
+        <icon-seedling></icon-seedling>
+        <div *ngFor="let item of firstCol; index as i">
+          <div class="">
+            <button type="button" class="btn btn-success mb-1"
+              popover="Plant {{item.perFoot}} per foot in {{item.season}}"
+              [outsideClick]="true">
+              {{item.plant}}
+            </button>
+          </div>
+        </div>
+        <div *ngIf="firstCol.length > 0">
+          <button (click)="clearColumn()" class="btn btn-info mb-1">Remove Column</button>
+        </div>
+      </div>
+  
+      <!-- displays only when 2 col are displayed -->
+      <div class="col-3 raised-bed-col" *ngIf="yGardenMax >= 2">
+        <icon-seedling></icon-seedling>
+        <div *ngFor="let item of secondCol; index as i">
+          <div class="">
+            <button type="button" class="btn btn-success mb-1"
+              popover="Plant {{item.perFoot}} per foot in {{item.season}}"
+              [outsideClick]="true">
+              {{item.plant}}
+            </button>
+          </div>
+        </div>
+        <div *ngIf="secondCol.length > 0">
+          <button (click)="clearSecondColumn()" class="btn btn-info mb-1">Remove Column</button>
+        </div>
+        
+      </div>
+  
+      <!-- displays only when 3 col are displayed -->
+      <div class="col-3 raised-bed-col" *ngIf="yGardenMax >= 3">
+        <icon-seedling></icon-seedling>
+        <div *ngFor="let item of thirdCol; index as i">
+          <div class="">
+            <button type="button" class="btn btn-success mb-1"
+              popover="Plant {{item.perFoot}} per foot in {{item.season}}"
+              [outsideClick]="true">
+              {{item.plant}}
+            </button>
+          </div>
+        </div>
+        <div *ngIf="thirdCol.length > 0">
+          <button (click)="clearThirdColumn()" class="btn btn-info mb-1">Remove Column</button>
+        </div>
+        
+      </div>
+  
+      <!-- displays only when 4 col are displayed -->
+      <div class="col-3 raised-bed-col" *ngIf="yGardenMax >= 4">
+        <icon-seedling></icon-seedling>
+        <div *ngFor="let item of fourthCol; index as i">
+          <div class="">
+            <button type="button" class="btn btn-success mb-1"
+              popover="Plant {{item.perFoot}} per foot in {{item.season}}"
+              [outsideClick]="true">
+              {{item.plant}}
+            </button>
+          </div>
+        </div>
+        <div *ngIf="fourthCol.length > 0">
+          <button (click)="clearFourthColumn()" class="btn btn-info mb-1">Remove Column</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- loop through saved gardens, display each column in a saved garden --nested loop -->
+    <div class="container col-12" *ngIf="savePlants">
+      <h1>Saved Gardens</h1>
+      Name: {{gardenName}}
+    </div>
+  
+    <div class="row ">
+  
+      <div class="col-12">
+        <div *ngFor="let item of savePlants; index as j" class="">
+  
+          <div class="row">
+            <div class="col-3 raised-bed-col" >
+              <icon-seedling></icon-seedling>
+              <div *ngFor="let planter of saveFirstCol; index as i">
+                <div class="">
+                  <button type="button" class="btn btn-success mb-1"
+                    popover="Plant {{planter.perFoot}} per foot in {{planter.season}}"
+                    [outsideClick]="true">
+                    {{planter.plant}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-3 raised-bed-col" >
+              <icon-seedling></icon-seedling>
+              <div *ngFor="let planter of saveSecondCol; index as i">
+                <div class="">
+                  <button type="button" class="btn btn-success mb-1"
+                    popover="Plant {{planter.perFoot}} per foot in {{planter.season}}"
+                    [outsideClick]="true">
+                    {{planter.plant}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-3 raised-bed-col" >
+              <icon-seedling></icon-seedling>
+              <div *ngFor="let planter of saveThirdCol; index as i">
+                <div class="">
+                  <button type="button" class="btn btn-success mb-1"
+                    popover="Plant {{planter.perFoot}} per foot in {{planter.season}}"
+                    [outsideClick]="true">
+                    {{planter.plant}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-3 raised-bed-col" >
+              <icon-seedling></icon-seedling>
+              <div *ngFor="let planter of saveFourthCol; index as i">
+                <div class="">
+                  <button type="button" class="btn btn-success mb-1"
+                    popover="Plant {{planter.perFoot}} per foot in {{planter.season}}"
+                    [outsideClick]="true">
+                    {{planter.plant}}
+                  </button>
+                </div>
+              </div>
+            </div>
+  
+          </div> <!--  end of row  -->
+  
+        </div> <!-- end of exterior loop -->
+      </div> <!-- end of col-12 -->
+    </div> <!-- end of garden-box row -->
+    
+    
+    
+  </div>
+  

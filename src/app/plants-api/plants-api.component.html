@@ -1,0 +1,35 @@
+<h1>Plants to and from the server</h1>
+
+<div class="container">
+    <!-- will take in plant name -->
+    <form action="POST">
+        <input type="text" #newPlantName placeholder="Add a plant name here"/>
+        <button (click)="postNewPlant(newPlantName.value)" (keyup.enter)="postNewPlant(newPlantName.value)" class="btn btn-primary m-2">Add a Plant</button>
+    </form>
+
+    <button (click)="allPlantsinit()" class="btn btn-primary m-2">Get all Plants</button>
+    <p> <input type="text" placeholder="does not work right now"><button class="btn btn-primary">search</button></p>
+    <button (click)="deleteAllPlants()" class="btn btn-danger m-2">Delete All</button>
+
+    <table class="table">
+        <thead>
+            <th>Id</th>
+            <th>Plant</th>
+        </thead>
+        <tbody>
+            <!-- loop through all plants in DB-->
+            <tr *ngFor="let plant of plants">
+                <td>{{ plant._id }}</td>
+                <td>{{ plant.plant }}</td>
+                <td><button class="btn btn-primary m-2">Edit this Plant's Name</button></td>
+                <td><button (click)="deletePlant(plant._id)" class="btn btn-primary m-2">Delete this Plant</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    
+
+    
+</div>
