@@ -3,7 +3,7 @@ RIGHT NOW: App just has crud operation on a single plant, boring right? Well whe
 
 IDEALLY: All of these things will come to life around a grand UI
 
-Written but not implemented: [main.component.ts]This application displays a list of plants on the left and you can add these to another list on the right (plants to go in garden, staged). Think about how you get code on github. ADD things(array of plants) to a staging area, COMMIT list of plants to a larger conatiner.Repeat as nessecesary. And PUSH the final product(multiple arrays to be saved(not wired up to the DB yet) ).
+WRITTEN BUT NOT IMPLEMENTED: [main.component.ts]This application displays a list of plants on the left and you can add these to another list on the right (plants to go in garden, staged). Think about how you get code on github. ADD things(array of plants) to a staging area, COMMIT list of plants to a larger conatiner.Repeat as nessecesary. And PUSH the final product(multiple arrays to be saved(not wired up to the DB yet) ).
 
 
 TODO: Primary
