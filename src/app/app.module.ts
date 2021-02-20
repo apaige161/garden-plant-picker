@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconSeedlingComponent } from './icon-seedling/icon-seedling.component';
 import { NavComponent } from './nav/nav.component';
 import { PopoverModule } from 'ngx-bootstrap/popover';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -30,6 +31,7 @@ import { MainComponent } from './main/main.component'
     AppRoutingModule,
     FontAwesomeModule,
     PopoverModule.forRoot(),
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
 

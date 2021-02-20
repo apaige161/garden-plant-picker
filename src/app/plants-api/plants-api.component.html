@@ -1,21 +1,35 @@
 <h1>Plants to and from the server</h1>
 
-<div class="container">
+<div class="container" >
     
-    <form action="POST">
+    <form class="mb-4" [formGroup]="AddPlantForm" (ngSubmit)="postNewPlant(newPlantName.value, newGardenName.value)">
 
         <!-- will take in plant name -->
-        <label for="newPlantName">Plant Name</label>
-        <input type="text" #newPlantName placeholder="Add a plant name here"/>
-
+        <div class="form-group">
+            <label for="newPlantName">Plant 
+                <input 
+                class="form-control"
+                formControlName="addPlantName" 
+                type="text" #newPlantName 
+                placeholder="Plant Name"/>
+                <span class="error" *ngIf="plantValidation.invalid && plantValidation.touched">A plant name is required</span>
+            </label>
+        </div>
+        
         <!-- will take in garden name -->
-        <label for="newGardenName">Garden Name</label>
-        <input type="text" #newGardenName placeholder="Garden Name"/>
-
-        <button 
-            (click)="postNewPlant(newPlantName.value, newGardenName.value)" 
-            (keyup.enter)="postNewPlant(newPlantName.value, newGardenName.value)" 
-            class="btn btn-primary m-2">
+        <div class="form-group">
+            <label  for="newGardenName">Garden Name
+                <input 
+                class="form-control"
+                formControlName="addGardenName" 
+                type="text" #newGardenName
+                placeholder="Garden Name"/>
+                <span class="error" *ngIf="plantValidation.invalid && plantValidation.touched">A garden name is required</span>
+            </label>
+            
+        </div>
+        
+        <button class="btn btn-primary m-2" [disabled]="plantValidation.invalid">
             Add a Plant
         </button>
     </form>

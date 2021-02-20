@@ -1,5 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, OnChanges, SimpleChange } from '@angular/core';
+//forms
+import { Validators, FormGroup, FormBuilder, FormControl } from '@angular/forms';
+
+
 import { SinglePlant } from './../single-plant';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -17,15 +21,42 @@ export class PlantsApiComponent implements OnInit {
 
   readonly url = 'http://localhost:3000/gardens';
 
+  /**
+   * Add new plant validation
+   */
+
+  AddPlantForm = new FormGroup({
+    addPlantName: new FormControl('', Validators.required),
+    addGardenName: new FormControl('', Validators.required),
+  }) 
+
+  //valid or not
+  get plantValidation() {
+    return this.AddPlantForm;
+  }
+
   
+  constructor(private plantService: PlantServerService, private http: HttpClient, private fb: FormBuilder) {
 
-  constructor(private plantService: PlantServerService, private http: HttpClient) {
+  }
 
+  ngOnInit() {
+    this.allPlantsinit();
+  }
+
+  initalizeForm(): void {
+    this.AddPlantForm = this.fb.group({
+      //add key value pairs
+      addPlantName: '',
+      addGardenName: ''
+    })
   }
 
   postNewPlant(newPlant, garden) {
     //return as a promise
     this.plantService.newPlant(newPlant, garden);
+
+    console.log(this.AddPlantForm);
 
     //refresh list
     this.allPlantsinit();
@@ -57,9 +88,8 @@ export class PlantsApiComponent implements OnInit {
     this.allPlantsinit();
   }
 
-  ngOnInit() {
-    this.allPlantsinit();
-  }
+  
+
 
   
 
