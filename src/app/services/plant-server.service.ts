@@ -15,7 +15,8 @@ export class PlantServerService {
   url = 'http://localhost:3000/gardens';
   //data to be posted
   postData = {
-    plant: "default"
+    plant: "default",
+    garden: "default"
   }
 
   deleteData = {
@@ -32,14 +33,29 @@ export class PlantServerService {
   }
 
 
-  newPlant(plantName: string) {
+  /**
+   * 
+   * create a new plant
+   * 
+   */
+  newPlant(plantName: string, gardenName: string) {
     this.postData.plant = plantName;
+    this.postData.garden = gardenName;
     //return as a promise
     this.http.post(this.url, this.postData)
       .subscribe(data => {
       console.log(data);
     })
   }
+
+
+
+
+
+
+
+
+
 
   deleteOne(id: string) {
     return this.http.delete(this.url+'/'+id)

@@ -23,9 +23,9 @@ export class PlantsApiComponent implements OnInit {
 
   }
 
-  postNewPlant(newPlant) {
+  postNewPlant(newPlant, garden) {
     //return as a promise
-    this.plantService.newPlant(newPlant);
+    this.plantService.newPlant(newPlant, garden);
 
     //refresh list
     this.allPlantsinit();
