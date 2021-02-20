@@ -7,13 +7,14 @@ WRITTEN BUT NOT IMPLEMENTED: [main.component.ts]This application displays a list
 
 
 TODO: Primary
-  create a user object to store "virtual gardens" in....    DTO??     new collection??    mongodb schema to hold array inside saved object -probably
+  create a user object to store "virtual gardens" in....  => give each plant an attribute of the gardens name to be able to sort by that later
   search functionality, filter() map() find()?
   form validation on plant-api.component.ts
   break code into more components
   work on routing
-  add in potential yields for each crop
-  add buttons with functions to calculate: total yield, per plant?, yield by plant
+  
+  
+  implement NgOnChange or figure out how to reload the plant list after every submit or change of list
 
 
 UI: Secondary
@@ -21,7 +22,10 @@ UI: Secondary
    => animate into home page
    add an image for each veggie inside the popover
    set up grid for the plants in garden to look like an actual square foot garden
-
+   
+OTHER: Secondary
+  add in potential yields for each crop
+  add buttons with functions to calculate: total yield, per plant?, yield by plant
 
 
 
