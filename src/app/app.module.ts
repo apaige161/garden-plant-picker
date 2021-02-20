@@ -15,7 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlantsFromServerComponent } from './plants-from-server/plants-from-server.component'
 import { PlantServerService } from './services/plant-server.service';
 import { PlantsApiComponent } from './plants-api/plants-api.component';
-import { MainComponent } from './main/main.component'
+import { MainComponent } from './main/main.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe'
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MainComponent } from './main/main.component'
     NavComponent,
     PlantsFromServerComponent,
     PlantsApiComponent,
-    MainComponent
+    MainComponent,
+    FilterPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

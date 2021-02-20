@@ -21,9 +21,38 @@ export class PlantsApiComponent implements OnInit {
 
   readonly url = 'http://localhost:3000/gardens';
 
-  /**
-   * Add new plant validation
-   */
+  /****************START sort and filter*******************/
+
+  Garden = '';
+  SearchGarden = '';
+
+  SortByParam = '';
+  SortDirection = 'asc'
+
+  /*
+  //filter button logic
+  onGardenFilter() {
+    this.SearchGarden = this.Garden;
+  }
+*/
+  onGardenFilterClear() {
+    this.SearchGarden = '';
+    this.Garden = '';
+  }
+
+  //sort direction toggle
+  onSortDirection() {
+    if (this.SortDirection === 'desc') {
+      this.SortDirection = 'asc';
+    } else {
+      this.SortDirection = 'desc';
+    }
+  }
+
+  /****************END sort and filter*******************/
+
+
+  /****************START new plant validation*******************/
 
   AddPlantForm = new FormGroup({
     addPlantName: new FormControl('', Validators.required),
@@ -35,6 +64,7 @@ export class PlantsApiComponent implements OnInit {
     return this.AddPlantForm;
   }
 
+  /****************END  new plant validation*******************/
   
   constructor(private plantService: PlantServerService, private http: HttpClient, private fb: FormBuilder) {
 
@@ -60,6 +90,9 @@ export class PlantsApiComponent implements OnInit {
 
     //refresh list
     this.allPlantsinit();
+
+    //clear input fields
+    
   }
 
   allPlantsinit() {
