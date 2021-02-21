@@ -15,7 +15,6 @@ export class FilterPipe implements PipeTransform {
     //value.length give an error (TypeError: Cannot read property 'length' of undefined) but still functions as it should??
     if(value) {
       if(value.length === 0 ||filterString === '' || propName === '') {
-        console.log("filterString or propName is an empty string")
         return value;
       }
   

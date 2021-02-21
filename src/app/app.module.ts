@@ -17,7 +17,9 @@ import { PlantServerService } from './services/plant-server.service';
 import { PlantsApiComponent } from './plants-api/plants-api.component';
 import { MainComponent } from './main/main.component';
 import { FilterPipe } from './pipes/filter.pipe';
-import { SortPipe } from './pipes/sort.pipe'
+import { SortPipe } from './pipes/sort.pipe';
+import { NewGardenComponent } from './new-garden/new-garden.component';
+import { SortAndFilterComponent } from './sort-and-filter/sort-and-filter.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SortPipe } from './pipes/sort.pipe'
     PlantsApiComponent,
     MainComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    NewGardenComponent,
+    SortAndFilterComponent
   ],
   imports: [
     BrowserModule,

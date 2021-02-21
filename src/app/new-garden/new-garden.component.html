@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="container col-6 col-12-sm">
+        <h1>Create your gardens here!</h1>
+    
+        <h2>Start by adding a new raised bed</h2>
+    
+        <!-- will take in garden name -->
+    
+        <div class="form-group">
+            <label  for="newGardenName">Garden Name
+                <input 
+                class="form-control"
+                [(ngModel)]="tempGardenName"
+                type="text" #newGardenName
+                placeholder="Garden Name"/>
+                <!-- change validation -->
+                <span class="error" *ngIf="plantValidation.invalid && plantValidation.touched">A garden name is required</span>
+            </label>
+        </div>
+
+        <!-- will take in x and y measurements in feet for raised bed size-->
+        <div class="form-group">
+            <h2>Garden Size</h2>
+
+            <label>width</label>
+            <select [(ngModel)]="xGarden">
+                <option value=1>1'</option>
+                <option value=2>2'</option>
+                <option value=3>3'</option>
+                <option value=4>4'</option>
+            </select>
+
+            <label>Length</label>
+            <select [(ngModel)]="yGarden">
+                <option value=1>1'</option>
+                <option value=2>2'</option>
+                <option value=3>3'</option>
+                <option value=4>4'</option>
+                <option value=5>5'</option>
+                <option value=6>6'</option>
+                <option value=7>7'</option>
+                <option value=8>8'</option>
+            </select>
+
+            <button (click)="calculateGardenArea()" class="btn btn-primary">Calculate garden area</button>
+            {{totalGardenArea}}
+        </div>
+
+    
+        <br>
+
+        <div *ngIf="tempGardenName">
+            <!-- start adding plants -->
+            <form class="mb-4" 
+                [formGroup]="AddPlantForm" 
+                (ngSubmit)="postNewPlant(
+                    tempGardenName,
+                    newPlantName.value, 
+                    newPlantSeason.value,
+                    newPlantZone.value,
+                    newPlantdensity.value)"
+                    (click)="allPlantsinit()">
+
+                <!-- will take in plant name -->
+                <div class="form-group">
+                    <label for="newPlantName">Plant 
+                        <input 
+                        class="form-control"
+                        formControlName="addPlantName" 
+                        type="text" #newPlantName 
+                        placeholder="Plant Name"/>
+                        <span class="error" *ngIf="plantValidation.invalid && plantValidation.touched">A plant name is required</span>
+                    </label>
+                </div>
+
+                <!-- will take in planting season -->
+
+                <div class="form-group">
+                    <label for="newPlantSeason">Season</label>
+                    <select #newPlantSeason formControlName="addGardenName" >
+                        <option value="spring">Spring</option>
+                        <option value="summer">Summer</option>
+                        <option value="fall">Fall</option>
+                        <option value="spring, fall">Spring, Fall</option>
+                    </select>
+                </div>
+
+                <!-- will take in planting zone -->
+                <div class="form-group">
+                    <label for="newPlantZone">Zone</label>
+                    <select #newPlantZone formControlName="addGardenName" >
+                        <option value="7a">7a</option>
+                        <option value="7b">7b</option>
+                        <option value="8a">8a</option>
+                        <option value="8b">8b</option>
+                    </select>
+                </div>
+
+                <!-- will take in planting zone -->
+                <div class="form-group">
+                    <label for="newPlantdensity">Plants per Square Foot</label>
+                    <select #newPlantdensity formControlName="addGardenName" >
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                        <option value=6>6</option>
+                        <option value=7>7</option>
+                        <option value=8>8</option>
+                        <option value=9>9</option>
+                        <option value=10>10</option>
+                        <option value=11>11</option>
+                        <option value=12>12</option>
+                        <option value=13>13</option>
+                        <option value=14>14</option>
+                        <option value=15>15</option>
+                        <option value=16>16</option>
+                        <option value=32>32</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary m-2" [disabled]="plantValidation.invalid">
+                    Add a Plant
+                </button>
+            </form>
+        </div><!-- end ng-if -->
+    </div>
+</div>
+
+
+<div *ngIf="tempGardenName" class="row">
+    <div class="container col-10">
+        <h2>Display current garden only: {{ tempGardenName }} is the current garden</h2>
+        <!-- Only display current garden -->
+        <!-- hide this if the garden doesnt have a name yet  -->
+        <app-sort-and-filter [uniqueGardenName]="tempGardenName"></app-sort-and-filter>
+    </div>
+</div>
+

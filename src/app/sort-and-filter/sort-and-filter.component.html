@@ -1,0 +1,58 @@
+
+<div>
+    {{uniqueGardenName}}
+    <button (click)="allPlantsinit()" class="btn btn-primary m-2">Refresh Plants</button>
+    <p> <input type="text" placeholder="does not work right now"><button class="btn btn-primary">search</button></p>
+    <button (click)="deleteAllPlants()" class="btn btn-danger m-2">Delete All</button>
+</div>
+
+
+<div>
+    <!-- filter and sort -->
+    <div>
+        
+        <label for="filterByGarden">Filter Gardens</label>
+        <input [(ngModel)]="Garden" type="text" #filterByGarden >
+        <button (click)="onGardenFilterClear()" class="btn btn-primary">Clear</button>
+
+        <label>Sort by: </label>
+        <select [(ngModel)]='SortByParam' >
+            <option value="garden">Garden Name</option>
+            <option value="plant">Plant Name</option>
+            <option value="season">Season</option>
+            <option value="zone">Zone</option>
+        </select>
+        <button (click)="onSortDirection()" class="btn btn-primary">Toggle ascending and descending</button>
+    </div>
+
+    <div>
+        <table class="table">
+            <thead>
+                <th>Id</th>
+                <th>Garden Name</th>
+                <th>Plant</th>
+                <th>Season</th>
+                <th>Zone</th>
+                <th>Plants per Square Foot</th>
+                <th>Edit (not yet implemented)</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                <!-- loop through all plants in DB -->
+                <!-- filters by gardenName , then sorts alphabetically by plant -->
+                <!-- sort will sort by the parameter inside [''] -->
+                <!-- to filter as user is typing use =>> filter: Garden:'garden' -->
+                <tr *ngFor="let plant of plants | filter: uniqueGardenName: 'garden'| sort:[SortByParam, SortDirection] ">
+                    <td>{{ plant._id }}</td>
+                    <td>{{ plant.garden }}</td>
+                    <td>{{ plant.plant }}</td>
+                    <td>{{ plant.season }}</td>
+                    <td>{{ plant.zone }}</td>
+                    <td>{{ plant.perFoot }}</td>
+                    <td><button class="btn btn-primary m-2">Edit this Plant's Name</button></td>
+                    <td><button (click)="deletePlant(plant._id)" class="btn btn-primary m-2">Delete this Plant</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
