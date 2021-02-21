@@ -7,14 +7,16 @@ WRITTEN BUT NOT IMPLEMENTED: [main.component.ts]This application displays a list
 
 
 TODO: Primary
-  create a user object to store "virtual gardens" in....  => give each plant an attribute of the gardens name to be able to sort by that later
-  search functionality, filter() map() find()?
-  form validation on plant-api.component.ts
+  -----limit user from adding more plants than the garden has space for ie 4x4 = 16 sq ft max
+    
+  refine form validation
+    
   break code into more components
   work on routing
   
   
-  implement NgOnChange or figure out how to reload the plant list after every submit or change of list
+  implement NgOnChange or figure out how to reload the plant list after every submit or change of list -sometimes works?? idk
+  -need to do this on /create to auto calculate area
 
 
 UI: Secondary
@@ -25,7 +27,7 @@ UI: Secondary
    
 OTHER: Secondary
   add in potential yields for each crop
-  add buttons with functions to calculate: total yield, per plant?, yield by plant
+  add buttons with functions to calculate: total yield, per plant?, yield by plant, etc
 
 
 
