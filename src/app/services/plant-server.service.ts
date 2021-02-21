@@ -16,13 +16,16 @@ export class PlantServerService {
   //data to be posted
   postData = {
     plant: "default",
-    garden: "default"
+    garden: "default",
+    season: "",
+    zone: "",
+    perFoot: 0
   }
 
   deleteData = {
     _id: "",
     plant: "",
-
+    season: "",
   }
 
   constructor(private http: HttpClient) {}
@@ -38,9 +41,17 @@ export class PlantServerService {
    * create a new plant
    * 
    */
-  newPlant(plantName: string, gardenName: string) {
+  newPlant(
+    plantName: string, 
+    gardenName: string, 
+    plantingSeason: string, 
+    plantZone: string,
+    perFoot: number) {
     this.postData.plant = plantName;
     this.postData.garden = gardenName;
+    this.postData.season = plantingSeason;
+    this.postData.zone = plantZone;
+    this.postData.perFoot = perFoot;
     //return as a promise
     this.http.post(this.url, this.postData)
       .subscribe(data => {

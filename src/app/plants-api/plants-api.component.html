@@ -2,7 +2,15 @@
 
 <div class="container" >
     
-    <form class="mb-4" [formGroup]="AddPlantForm" (ngSubmit)="postNewPlant(newPlantName.value, newGardenName.value)">
+    <form class="mb-4" 
+        [formGroup]="AddPlantForm" 
+        (ngSubmit)="postNewPlant(
+            newPlantName.value, 
+            newGardenName.value, 
+            newPlantSeason.value,
+            newPlantZone.value,
+            newPlantdensity.value)"
+            (click)="allPlantsinit()">
 
         <!-- will take in plant name -->
         <div class="form-group">
@@ -26,7 +34,53 @@
                 placeholder="Garden Name"/>
                 <span class="error" *ngIf="plantValidation.invalid && plantValidation.touched">A garden name is required</span>
             </label>
-            
+        </div>
+
+        <!-- will take in planting season -->
+
+        <div class="form-group">
+            <label for="newPlantSeason">Season</label>
+            <select #newPlantSeason formControlName="addGardenName" >
+                <option value="spring">Spring</option>
+                <option value="summer">Summer</option>
+                <option value="fall">Fall</option>
+                <option value="spring, fall">Spring, Fall</option>
+            </select>
+        </div>
+
+        <!-- will take in planting zone -->
+        <div class="form-group">
+            <label for="newPlantZone">Zone</label>
+            <select #newPlantZone formControlName="addGardenName" >
+                <option value="7a">7a</option>
+                <option value="7b">7b</option>
+                <option value="8a">8a</option>
+                <option value="8b">8b</option>
+            </select>
+        </div>
+
+        <!-- will take in planting zone -->
+        <div class="form-group">
+            <label for="newPlantdensity">Plants per Square Foot</label>
+            <select #newPlantdensity formControlName="addGardenName" >
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+                <option value=11>11</option>
+                <option value=12>12</option>
+                <option value=13>13</option>
+                <option value=14>14</option>
+                <option value=15>15</option>
+                <option value=16>16</option>
+                <option value=32>32</option>
+            </select>
         </div>
         
         <button class="btn btn-primary m-2" [disabled]="plantValidation.invalid">
@@ -34,7 +88,7 @@
         </button>
     </form>
 
-    <button (click)="allPlantsinit()" class="btn btn-primary m-2">Get all Plants</button>
+    <button (click)="allPlantsinit()" class="btn btn-primary m-2">Refresh Plants</button>
     <p> <input type="text" placeholder="does not work right now"><button class="btn btn-primary">search</button></p>
     <button (click)="deleteAllPlants()" class="btn btn-danger m-2">Delete All</button>
 
@@ -49,6 +103,8 @@
         <select [(ngModel)]='SortByParam' >
             <option value="garden">Garden Name</option>
             <option value="plant">Plant Name</option>
+            <option value="season">Season</option>
+            <option value="zone">Zone</option>
         </select>
         <button (click)="onSortDirection()" class="btn btn-primary">Toggle ascending and descending</button>
         
@@ -62,6 +118,9 @@
             <th>Id</th>
             <th>Garden Name</th>
             <th>Plant</th>
+            <th>Season</th>
+            <th>Zone</th>
+            <th>Plants per Square Foot</th>
             <th>Edit (not yet implemented)</th>
             <th>Delete</th>
         </thead>
@@ -74,6 +133,9 @@
                 <td>{{ plant._id }}</td>
                 <td>{{ plant.garden }}</td>
                 <td>{{ plant.plant }}</td>
+                <td>{{ plant.season }}</td>
+                <td>{{ plant.zone }}</td>
+                <td>{{ plant.perFoot }}</td>
                 <td><button class="btn btn-primary m-2">Edit this Plant's Name</button></td>
                 <td><button (click)="deletePlant(plant._id)" class="btn btn-primary m-2">Delete this Plant</button></td>
             </tr>

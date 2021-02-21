@@ -26,7 +26,7 @@ export class PlantsApiComponent implements OnInit {
   Garden = '';
   SearchGarden = '';
 
-  SortByParam = '';
+  SortByParam = 'garden';
   SortDirection = 'asc'
 
   /*
@@ -54,9 +54,12 @@ export class PlantsApiComponent implements OnInit {
 
   /****************START new plant validation*******************/
 
+  //needs to be refactored -noted on github
+
   AddPlantForm = new FormGroup({
     addPlantName: new FormControl('', Validators.required),
     addGardenName: new FormControl('', Validators.required),
+
   }) 
 
   //valid or not
@@ -64,7 +67,14 @@ export class PlantsApiComponent implements OnInit {
     return this.AddPlantForm;
   }
 
-  /****************END  new plant validation*******************/
+  /****************END new plant validation*******************/
+
+  /****************START season options*******************/
+
+  
+
+
+  /****************END season options*******************/
   
   constructor(private plantService: PlantServerService, private http: HttpClient, private fb: FormBuilder) {
 
@@ -82,9 +92,9 @@ export class PlantsApiComponent implements OnInit {
     })
   }
 
-  postNewPlant(newPlant, garden) {
+  postNewPlant(newPlant, garden, plantingSeason, plantZone, perFoot) {
     //return as a promise
-    this.plantService.newPlant(newPlant, garden);
+    this.plantService.newPlant(newPlant, garden, plantingSeason, plantZone, perFoot);
 
     console.log(this.AddPlantForm);
 
@@ -92,7 +102,7 @@ export class PlantsApiComponent implements OnInit {
     this.allPlantsinit();
 
     //clear input fields
-    
+
   }
 
   allPlantsinit() {
