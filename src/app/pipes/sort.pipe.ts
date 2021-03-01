@@ -24,8 +24,6 @@ export class SortPipe implements PipeTransform {
         return 0;
       }
     });
-
-    console.log('not sorted properly');
     return value;
   }}
 }

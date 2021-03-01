@@ -13,6 +13,7 @@ import { SinglePlant } from './../single-plant';
 export class SortAndFilterComponent implements OnInit {
 
   @Input() uniqueGardenName;
+  
 
   plants: SinglePlant[];
 

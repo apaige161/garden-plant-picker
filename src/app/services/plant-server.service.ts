@@ -59,22 +59,9 @@ export class PlantServerService {
     })
   }
 
-
-
-
-
-
-
-
-
-
   deleteOne(id: string) {
     return this.http.delete(this.url+'/'+id)
   }
-
-  
-
-
 
 }
 

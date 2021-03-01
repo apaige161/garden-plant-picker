@@ -19,7 +19,8 @@ import { MainComponent } from './main/main.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { NewGardenComponent } from './new-garden/new-garden.component';
-import { SortAndFilterComponent } from './sort-and-filter/sort-and-filter.component'
+import { SortAndFilterComponent } from './sort-and-filter/sort-and-filter.component';
+import { AdminComponent } from './admin/admin.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SortAndFilterComponent } from './sort-and-filter/sort-and-filter.compon
     FilterPipe,
     SortPipe,
     NewGardenComponent,
-    SortAndFilterComponent
+    SortAndFilterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

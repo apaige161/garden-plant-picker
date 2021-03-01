@@ -1,0 +1,102 @@
+<div class="row">
+    <div class="col-6">
+        <h1>Create your gardens here!</h1>
+        <h2>Start by adding a new raised bed</h2>
+    
+        <form (ngSubmit)="onSubmit()" #gardenForm="ngForm">
+    
+            <!-- garden form -->
+            <div class="form-group">
+    
+                <!-- garden name -->
+                <label for="newGardenName">Garden Name</label>
+                <input type="text" class="form-control" id="gardenName"
+                    placeholder="New Garden Name"
+                    required
+                    [(ngModel)]="gardenName" name="newGardenName"
+                    #newGardenName = "ngModel">
+    
+                    <div [hidden]="newGardenName.valid || newGardenName.pristine"
+                    class="alert alert-danger">
+                        Garden Name is required
+                    </div>
+    
+                <!-- X number of columns -->
+                <label for="newXGarden">Width in feet</label>
+                <select class="form-control" id="newXGarden" 
+                    required
+                    [(ngModel)]="xGarden" name="newXGarden">
+                <option *ngFor="let xGarden of xGardenSize" [value]="xGarden">{{xGarden}}</option>
+                </select>
+    
+                <!-- Y number of rows -->
+                <label for="newYGarden">Width in feet</label>
+                <select class="form-control" id="newYGarden" 
+                    required
+                    [(ngModel)]="yGarden" name="newYGarden">
+                <option *ngFor="let yGarden of yGardenSize" [value]="xGarden">{{yGarden}}</option>
+                </select>
+                
+                <!-- garden zone -->
+                <div *ngIf="gardenName && xGarden && yGarden">
+                    <label for="newZone">Garden Zone</label>
+                    <select class="form-control" id="newZone" 
+                        required
+                        [(ngModel)]="zone" name="newZone">
+                    <option *ngFor="let zone of zones" [value]="zone">{{zone}}</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <form (ngSubmit)="onSubmit()" #plantForm="ngForm">
+    
+            <div *ngIf="zone">
+                <!-- plant name -->
+                <label for="newPlantName">Plant Name</label>
+                <input type="text" class="form-control" id="newPlantName"
+                    placeholder="New Plant Name"
+                    required
+                    [(ngModel)]="plantName" name="newPlantName"
+                    #newPlantName = "ngModel">
+    
+                    <div [hidden]="newPlantName.valid || newPlantName.pristine"
+                    class="alert alert-danger">
+                        Plant is required
+                    </div>
+    
+                <!-- garden season -->
+                <label for="newSeason">Garden Season</label>
+                <select class="form-control" id="newSeason" 
+                    required
+                    [(ngModel)]="season" name="newSeason">
+                <option *ngFor="let season of seasons" [value]="season">{{season}}</option>
+                </select>
+    
+                <!-- plant density per foot -->
+                <label for="newDensity">Density per foot</label>
+                <select class="form-control" id="density" 
+                    required
+                    [(ngModel)]="density" name="newDensity">
+                <option *ngFor="let density of densities" [value]="density">{{density}}</option>
+                </select>
+            </div>
+    
+            <div *ngIf="plantName && season && density">
+                <button type="submit" 
+                class="btn btn-success"
+                (click)="postPlant(); plantForm.reset()">
+                Add plant to current garden</button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- display current garden -->
+    <div *ngIf="gardenName" class="col-6">
+        <div class="">
+            <h2>Display current garden only: {{ gardenName | uppercase }} is the current garden</h2>
+            <!-- Only display current garden -->
+            <!-- hide this if the garden doesnt have a name yet  -->
+            <app-sort-and-filter [uniqueGardenName]="gardenName"></app-sort-and-filter>
+        </div>
+    </div>
+</div>

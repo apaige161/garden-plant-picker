@@ -19,6 +19,7 @@ export class NewGardenComponent implements OnInit {
   readonly url = 'http://localhost:3000/gardens';
 
   tempGardenName = '';
+  zone = '7b';
 
   
 
@@ -36,10 +37,34 @@ export class NewGardenComponent implements OnInit {
   //needs to be refactored -noted on github
 
   
+ 
+
+  AddGardenForm = new FormGroup({
+    tempGardenName: new FormControl(''),
+    xGarden: new FormControl(''),
+    yGarden: new FormControl(''),
+    gardenZone: new FormControl(''),
+  }) 
+
   AddPlantForm = new FormGroup({
     addPlantName: new FormControl('', Validators.required),
+    newPlantSeason: new FormControl('', Validators.required),
+    newPlantdensity: new FormControl('', Validators.required),
+    
 
   }) 
+
+  AddOptionsForm = new FormGroup({
+    
+  })
+
+  bindGardenName(name) {
+    this.tempGardenName = name;
+  }
+
+  bindPlantZone(gardenzone) {
+    this.zone = gardenzone;
+  }
 
   //valid or not
   get plantValidation() {
@@ -65,15 +90,16 @@ export class NewGardenComponent implements OnInit {
   yGarden = 1;
   totalGardenArea = 1;
 
-  calculateGardenArea(){
-    this.totalGardenArea = this.xGarden * this.yGarden;
+  calculateGardenArea(x: number, y: number){
+    this.totalGardenArea = x * y;
   }
 
 
 
   postNewPlant(newPlant, garden, plantingSeason, plantZone, perFoot) {
 
-    garden = this.tempGardenName
+    garden = this.tempGardenName;
+    plantZone = this.zone;
 
 
     //return as a promise
