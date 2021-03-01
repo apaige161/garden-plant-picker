@@ -13,14 +13,18 @@ import { SinglePlant } from './../single-plant';
 export class SortAndFilterComponent implements OnInit {
 
   @Input() uniqueGardenName;
-  
+
+  //retrieve x and y from DB???
+  xGarden = 0;
+  yGarden = 0;
+  maxPlants = 32;
+  area = 0;
 
   plants: SinglePlant[];
 
   readonly url = 'http://localhost:3000/gardens';
 
-  //filter parameter
-  Garden = '';
+  
   /*** get 'tempGardenName' from new-garden component */
 
   //SearchGarden = '';
@@ -33,8 +37,10 @@ export class SortAndFilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.allPlantsinit();
+    //this.getSize();
   }
 
+  //refresh button
   allPlantsinit() {
     this.plantService.getPlants()
       .subscribe(data => this.plants = data);
@@ -61,11 +67,6 @@ export class SortAndFilterComponent implements OnInit {
     this.allPlantsinit();
   }
 
-  onGardenFilterClear() {
-    //this.SearchGarden = '';
-    this.Garden = '';
-  }
-
   //sort direction toggle
   onSortDirection() {
     if (this.SortDirection === 'desc') {
@@ -73,6 +74,22 @@ export class SortAndFilterComponent implements OnInit {
     } else {
       this.SortDirection = 'desc';
     }
+  }
+
+  /**
+   * define grid
+   */
+
+  getSize() {
+    this.plants.map(plant => {
+      this.xGarden = plant.xGarden;
+      this.yGarden = plant.yGarden
+    });
+  }
+
+  calculateArea(x, y){
+    this.area = x*y
+    this.maxPlants = this.area;
   }
 
 }

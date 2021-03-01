@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-6">
+    <div class="col-5 container">
         <h1>Create your gardens here!</h1>
         <h2>Start by adding a new raised bed</h2>
     
@@ -21,36 +21,31 @@
                         Garden Name is required
                     </div>
     
-                <!-- X number of columns -->
-                <label for="newXGarden">Width in feet</label>
-                <select class="form-control" id="newXGarden" 
-                    required
-                    [(ngModel)]="xGarden" name="newXGarden">
-                <option *ngFor="let xGarden of xGardenSize" [value]="xGarden">{{xGarden}}</option>
-                </select>
-    
-                <!-- Y number of rows -->
-                <label for="newYGarden">Width in feet</label>
-                <select class="form-control" id="newYGarden" 
-                    required
-                    [(ngModel)]="yGarden" name="newYGarden">
-                <option *ngFor="let yGarden of yGardenSize" [value]="xGarden">{{yGarden}}</option>
-                </select>
-                
-                <!-- garden zone -->
-                <div *ngIf="gardenName && xGarden && yGarden">
-                    <label for="newZone">Garden Zone</label>
-                    <select class="form-control" id="newZone" 
+                <div *ngIf="gardenName">
+                    <!-- X number of columns -->
+                    <label for="newXGarden">Width in feet</label>
+                    <select class="form-control" id="newXGarden" 
                         required
-                        [(ngModel)]="zone" name="newZone">
-                    <option *ngFor="let zone of zones" [value]="zone">{{zone}}</option>
+                        [(ngModel)]="xGarden" name="newXGarden">
+                    <option *ngFor="let xGarden of xGardenSize" [value]="xGarden">{{xGarden}}</option>
                     </select>
+        
+                    <!-- Y number of rows -->
+                    <label for="newYGarden">Length in feet</label>
+                    <select class="form-control" id="newYGarden" 
+                        required
+                        [(ngModel)]="yGarden" name="newYGarden">
+                    <option *ngFor="let yGarden of yGardenSize" [value]="yGarden">{{yGarden}}</option>
+                    </select>
+
                 </div>
+                
+                
             </div>
         </form>
         <form (ngSubmit)="onSubmit()" #plantForm="ngForm">
     
-            <div *ngIf="zone">
+            <div *ngIf="gardenName && xGarden && yGarden">
                 <!-- plant name -->
                 <label for="newPlantName">Plant Name</label>
                 <input type="text" class="form-control" id="newPlantName"
@@ -84,19 +79,27 @@
             <div *ngIf="plantName && season && density">
                 <button type="submit" 
                 class="btn btn-success"
-                (click)="postPlant(); plantForm.reset()">
+                (click)="postPlant()">
                 Add plant to current garden</button>
+                <button class="btn btn-success"(click)="plantForm.reset()">Reset</button>
             </div>
         </form>
+        <button class="btn btn-warning"><a href="#">Go to Gardens</a> </button>
     </div>
+
+    
     
     <!-- display current garden -->
-    <div *ngIf="gardenName" class="col-6">
-        <div class="">
-            <h2>Display current garden only: {{ gardenName | uppercase }} is the current garden</h2>
-            <!-- Only display current garden -->
-            <!-- hide this if the garden doesnt have a name yet  -->
-            <app-sort-and-filter [uniqueGardenName]="gardenName"></app-sort-and-filter>
+    <div class="col-5 container">
+        <h2>Garden</h2>
+        <div *ngIf="gardenName" >
+            <div class="">
+                <h2>{{ gardenName | uppercase }} is the current garden</h2>
+                <h2>Zone: {{ zone | uppercase }}</h2>
+                <!-- Only display current garden -->
+                <!-- hide this if the garden doesnt have a name yet  -->
+                <app-sort-and-filter [uniqueGardenName]="gardenName"></app-sort-and-filter>
+            </div>
         </div>
     </div>
 </div>

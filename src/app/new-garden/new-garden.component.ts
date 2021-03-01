@@ -103,7 +103,7 @@ export class NewGardenComponent implements OnInit {
 
 
     //return as a promise
-    this.plantService.newPlant(newPlant, garden, plantingSeason, plantZone, perFoot);
+    //this.plantService.newPlant(newPlant, garden, plantingSeason, plantZone, perFoot);
 
     //console.log(this.AddPlantForm);
 

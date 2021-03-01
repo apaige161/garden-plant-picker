@@ -8,5 +8,7 @@ export interface SinglePlant {
     season: string;
     zone: string;
     perFoot: number;
+    xGarden: number;
+    yGarden: number;
 }
 

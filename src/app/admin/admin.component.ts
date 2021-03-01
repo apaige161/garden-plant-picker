@@ -13,13 +13,13 @@ export class AdminComponent implements OnInit {
   //to be posted to server
   gardenName = '';
   plantName = '';
-  zone = '';
+  zone = '7b';
   season = '';
   density = 0;
 
   //get garden size
-  xGarden = 4;
-  yGarden = 8;
+  xGarden = 0;
+  yGarden = 0;
 
   xGardenSize = [
     1,
@@ -60,10 +60,10 @@ export class AdminComponent implements OnInit {
   ]
 
   zones = [
-    "7a",
+    //"7a",
     "7b",
-    "8a",
-    "8b",
+    //"8a",
+    //"8b",
   ]
 
   constructor(private plantService: PlantServerService) { }
@@ -77,7 +77,14 @@ export class AdminComponent implements OnInit {
 
   //send to DB
   postPlant() {
-    this.plantService.newPlant(this.plantName, this.gardenName, this.season, this.zone, this.density);
+    this.plantService.newPlant(
+      this.plantName, 
+      this.gardenName, 
+      this.season, 
+      this.zone, 
+      this.density, 
+      this.xGarden, 
+      this.yGarden);
   }
 
 }

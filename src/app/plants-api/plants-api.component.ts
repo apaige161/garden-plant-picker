@@ -94,7 +94,7 @@ export class PlantsApiComponent implements OnInit {
 
   postNewPlant(newPlant, garden, plantingSeason, plantZone, perFoot) {
     //return as a promise
-    this.plantService.newPlant(newPlant, garden, plantingSeason, plantZone, perFoot);
+    //this.plantService.newPlant(newPlant, garden, plantingSeason, plantZone, perFoot);
 
     console.log(this.AddPlantForm);
 
