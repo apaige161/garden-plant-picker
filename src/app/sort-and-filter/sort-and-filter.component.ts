@@ -78,6 +78,9 @@ export class SortAndFilterComponent implements OnInit {
 
   /**
    * define grid
+   * 
+   * ngOnChanges?????
+   * 
    */
 
   getSize() {
