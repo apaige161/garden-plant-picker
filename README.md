@@ -17,7 +17,9 @@ TODO: Primary
 
   !!implement NgOnChange or figure out how to reload the plant list after every submit or change of list -sometimes works?? idk
 
+  hard code in 4x4 garden size for now
   -----limit user from adding more plants than the garden has space for ie 4x4 = 16 sq ft max
+  --slice array in new arrays for each column
   
 
 UI: Secondary
