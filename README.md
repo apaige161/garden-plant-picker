@@ -7,6 +7,9 @@ WRITTEN BUT NOT IMPLEMENTED: [main.component.ts]This application displays a list
 
 
 TODO: Primary
+
+  fix form issues, throwing los of errors
+
   -----limit user from adding more plants than the garden has space for ie 4x4 = 16 sq ft max
     
   refine form validation
