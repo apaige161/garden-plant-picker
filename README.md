@@ -1,3 +1,8 @@
+INSTRUCTIONS: download this repo and garden-plant-picker-rest-api
+-npm install on both
+-npm start on garden-plant-picker-rest-api
+-ng serve on garden-plant-picker/my-garden
+
 
 RIGHT NOW: App just has crud operation on a single plant, boring right? Well when I have time I want to be able to aggregate these single plants together to store "raised garden beds" designs. Even later: A.) a user will be able to sign in and look at only his or her saved garden beds, along with adding more of course. OR B.)Show an idea of what the user is going to yied with the current garden/s
 
@@ -8,19 +13,12 @@ WRITTEN BUT NOT IMPLEMENTED: [main.component.ts]This application displays a list
 
 TODO: Primary
 
-  fix form issues, throwing los of errors
+  research lifecycle hooks
+
+  !!implement NgOnChange or figure out how to reload the plant list after every submit or change of list -sometimes works?? idk
 
   -----limit user from adding more plants than the garden has space for ie 4x4 = 16 sq ft max
-    
-  refine form validation
-    
-  break code into more components
-  work on routing
   
-  
-  implement NgOnChange or figure out how to reload the plant list after every submit or change of list -sometimes works?? idk
-  -need to do this on /create to auto calculate area
-
 
 UI: Secondary
    single page with a small button in the middle "Get Started" or something
