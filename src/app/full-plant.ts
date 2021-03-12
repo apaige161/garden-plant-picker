@@ -3,4 +3,5 @@ export interface FullPlant {
     season: string,
     perFoot: number,
     zone: string,
+    col: number,
 }

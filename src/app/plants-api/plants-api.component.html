@@ -1,6 +1,7 @@
 <h1>Plants to and from the server</h1>
 
 <div class="container" >
+
     
     <form class="mb-4" 
         [formGroup]="AddPlantForm" 
@@ -103,14 +104,11 @@
         <select [(ngModel)]='SortByParam' >
             <option value="garden">Garden Name</option>
             <option value="plant">Plant Name</option>
+            <option value="col">column</option>
             <option value="season">Season</option>
             <option value="zone">Zone</option>
         </select>
         <button (click)="onSortDirection()" class="btn btn-primary">Toggle ascending and descending</button>
-        
-
-
-
     </div>
 
     <table class="table">

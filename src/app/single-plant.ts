@@ -10,5 +10,6 @@ export interface SinglePlant {
     perFoot: number;
     xGarden: number;
     yGarden: number;
+    col: number;
 }
 

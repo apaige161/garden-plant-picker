@@ -16,6 +16,7 @@ export class AdminComponent implements OnInit {
   zone = '7b';
   season = '';
   density = 0;
+  col = 0;
 
   //get garden size
   xGarden = 0;
@@ -84,7 +85,8 @@ export class AdminComponent implements OnInit {
       this.zone, 
       this.density, 
       this.xGarden, 
-      this.yGarden);
+      this.yGarden,
+      this.col);
   }
 
 }

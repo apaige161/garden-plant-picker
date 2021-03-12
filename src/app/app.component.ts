@@ -51,48 +51,56 @@ export class AppComponent {
       season: 'spring, fall',
       perFoot: 16,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'cabbage',
       season: 'summer',
       perFoot: 1,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'cucumber',
       season: 'spring, fall',
       perFoot: .25,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'hot pepper',
       season: 'summer',
       perFoot: .5,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'mild pepper',
       season: 'summer',
       perFoot: .5,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'garlic',
       season: 'spring, fall',
       perFoot: 4,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'basil',
       season: 'spring, fall',
       perFoot: 1,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'lettuce',
       season: 'spring, fall',
       perFoot: 16,
       zone: '7b',
+      col: 0
     },
   ];
 

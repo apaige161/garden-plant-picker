@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, OnChanges, SimpleChange, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChange, Input, AfterViewChecked, AfterViewInit } from '@angular/core';
 //forms
 import { Validators, FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { PlantServerService } from './../services/plant-server.service'
@@ -10,7 +10,7 @@ import { SinglePlant } from './../single-plant';
   templateUrl: './sort-and-filter.component.html',
   styleUrls: ['./sort-and-filter.component.css']
 })
-export class SortAndFilterComponent implements OnInit {
+export class SortAndFilterComponent implements OnInit, OnChanges, AfterViewInit {
 
   @Input() uniqueGardenName;
 
@@ -40,10 +40,21 @@ export class SortAndFilterComponent implements OnInit {
     //this.getSize();
   }
 
+  ngOnChanges() {
+    
+  }
+
+  ngAfterViewInit() {
+    //this.getSize();
+  }
+
   //refresh button
   allPlantsinit() {
     this.plantService.getPlants()
       .subscribe(data => this.plants = data);
+
+    console.log(this.plants);
+
   }
 
   deletePlant(id:string) {
@@ -83,10 +94,12 @@ export class SortAndFilterComponent implements OnInit {
    * 
    */
 
+   //only give the latest posted size
+   //need to get the current
   getSize() {
-    this.plants.map(plant => {
-      this.xGarden = plant.xGarden;
-      this.yGarden = plant.yGarden
+    this.plants.map(garden => {
+      this.xGarden = garden.xGarden;
+      this.yGarden = garden.yGarden
     });
   }
 

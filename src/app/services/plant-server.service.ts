@@ -22,6 +22,7 @@ export class PlantServerService {
     perFoot: 0,
     xGarden: 0,
     yGarden: 0,
+    col: 0,
   }
 
   deleteData = {
@@ -50,7 +51,8 @@ export class PlantServerService {
     plantZone: string,
     perFoot: number,
     xGarden: number,
-    yGarden: number) {
+    yGarden: number,
+    col: number) {
     this.postData.plant = plantName;
     this.postData.garden = gardenName;
     this.postData.season = plantingSeason;
@@ -58,6 +60,7 @@ export class PlantServerService {
     this.postData.perFoot = perFoot;
     this.postData.xGarden = xGarden;
     this.postData.yGarden = yGarden;
+    this.postData.col = col;
     //return as a promise
     this.http.post(this.url, this.postData)
       .subscribe(data => {

@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FullPlant } from './../full-plant';
+import { PlantServerService } from './../services/plant-server.service'
 
-import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
 
   /**
    * App allows user to: 
@@ -29,6 +29,10 @@ export class MainComponent {
    * 
    */
 
+  constructor(private plantService: PlantServerService) { }
+
+  ngOnInit(): void {
+  }
 
   @Input()
   title = 'my-garden';
@@ -44,48 +48,56 @@ export class MainComponent {
       season: 'spring, fall',
       perFoot: 16,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'cabbage',
       season: 'summer',
       perFoot: 1,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'cucumber',
       season: 'spring, fall',
       perFoot: .25,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'hot pepper',
       season: 'summer',
       perFoot: .5,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'mild pepper',
       season: 'summer',
       perFoot: .5,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'garlic',
       season: 'spring, fall',
       perFoot: 4,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'basil',
       season: 'spring, fall',
       perFoot: 1,
       zone: '7b',
+      col: 0
     },
     {
       plant: 'lettuce',
       season: 'spring, fall',
       perFoot: 16,
       zone: '7b',
+      col: 0
     },
   ];
 
@@ -206,13 +218,13 @@ export class MainComponent {
     if(this.firstCol.length == 0) {
       this.firstCol = this.garden;
     }
-    else if (this.secondCol.length == 0 && this.yGardenMax >= 2){
+    else if (this.secondCol.length == 0 && this.xGardenMax >= 2){
       this.secondCol = this.garden;
     }
-    else if (this.thirdCol.length == 0 && this.yGardenMax >= 3){
+    else if (this.thirdCol.length == 0 && this.xGardenMax >= 3){
       this.thirdCol = this.garden;
     }
-    else if (this.fourthCol.length == 0 && this.yGardenMax >= 4){
+    else if (this.fourthCol.length == 0 && this.xGardenMax >= 4){
       this.fourthCol = this.garden;
     } else {
       console.log("something went wrong!");
@@ -229,5 +241,120 @@ export class MainComponent {
       return false;
     }
   }
+
+
+  /*
+  save information to the DB
+  */
+  postToDb(){
+
+    let plantName = '';
+    let season = '';
+    let density = 0;
+    let zone = ''
+    let col = 0;
+
+    if(this.saveFirstCol) {
+      this.saveFirstCol.forEach(item => {
+        item.plant = plantName;
+        item.season = season;
+        item.perFoot = density;
+        item.zone = zone;
+        col = 0
+
+        this.plantService.newPlant(
+          plantName,
+          this.gardenName,
+          season,
+          zone,
+          density,
+          this.xGardenMax,
+          this.yGardenMax,
+          col
+        )
+      });
+      console.log("posted first col");
+    }
+    if(this.saveSecondCol) {
+      this.saveSecondCol.forEach(item => {
+        item.plant = plantName;
+        item.season = season;
+        item.perFoot = density;
+        item.zone = zone;
+        col = 1
+
+        this.plantService.newPlant(
+          plantName,
+          this.gardenName,
+          season,
+          zone,
+          density,
+          this.xGardenMax,
+          this.yGardenMax,
+          col
+        )
+      });
+      console.log("posted second col");
+    } 
+    if(this.saveThirdCol) {
+      this.saveThirdCol.forEach(item => {
+        item.plant = plantName;
+        item.season = season;
+        item.perFoot = density;
+        item.zone = zone;
+        col = 2
+
+        this.plantService.newPlant(
+          plantName,
+          this.gardenName,
+          season,
+          zone,
+          density,
+          this.xGardenMax,
+          this.yGardenMax,
+          col
+        )
+      });
+      console.log("posted third col");
+    }
+    if(this.saveFourthCol) {
+      this.saveFourthCol.forEach(item => {
+        item.plant = plantName;
+        item.season = season;
+        item.perFoot = density;
+        item.zone = zone;
+        col = 3
+
+        this.plantService.newPlant(
+          plantName,
+          this.gardenName,
+          season,
+          zone,
+          density,
+          this.xGardenMax,
+          this.yGardenMax,
+          col
+        )
+      });
+      console.log("posted fourth col");
+    }
+  }
+
+  //send to DB
+  /*
+  postPlant() {
+
+    this.plantService.newPlant(
+      
+      this.plant, 
+      this.gardenName, 
+      this.season, 
+      this.zone, 
+      this.density, 
+      this.xGardenMax, 
+      this.yGardenMax);
+  }
+*/
+
 
 }

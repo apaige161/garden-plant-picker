@@ -1,31 +1,10 @@
 <div class="container">
-
-    <app-plants-api></app-plants-api>
   
     <div class="row justify-content-center align-items-center">
   
-      <!-- radio buttons to choose xGardenMax-->
       <div class="radio col-6">
-        <h1>Width</h1>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio1" value=1>
-          <label class="form-check-label" for="inlineRadio1">1</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio2" value=2>
-          <label class="form-check-label" for="inlineRadio2">2</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio3" value=3>
-          <label class="form-check-label" for="inlineRadio3">3</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio4" value=4  >
-          <label class="form-check-label" for="inlineRadio4">4</label>
-        </div>
-        
-    
-      <!-- radio buttons to choose yGardenMax-->
+
+        <!-- radio buttons to choose xGardenMax-->
         <h1>Length</h1>
         <div class="form-check form-check-inline">
           <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio1" value=1>
@@ -59,7 +38,27 @@
           <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio4" value=8>
           <label class="form-check-label" for="inlineRadio8">8</label>
         </div>
+        
+        <!-- radio buttons to choose yGardenMax-->
+        <h1>Width</h1>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio1" value=1>
+          <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio2" value=2>
+          <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio3" value=3>
+          <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio4" value=4  >
+          <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
       </div>
+
       <div class="col-6">
         <h1>The raised bed is {{xGardenMax}}' x {{yGardenMax}}'</h1>
       </div>
@@ -126,8 +125,9 @@
       <div class="container">
         <h2>Name this garden bed:</h2>
         <input type="text" #box />
-        <button (click)="saveName(box.value)" (click)="storePlantArrays()" class="btn btn-primary">Save</button>
+        <button (click)="saveName(box.value)" class="btn btn-primary">Save</button>
         <h4>NAME: <span>{{gardenName}}</span></h4>
+        <button  (click)="postToDb()"  class="btn btn-primary">Save to DB</button>
       </div>
       
     

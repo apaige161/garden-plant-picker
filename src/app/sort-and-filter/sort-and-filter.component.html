@@ -1,6 +1,6 @@
 
 <div>
-    <button (click)="allPlantsinit()" class="btn btn-primary m-2">Refresh Plants</button>
+    <button (click)="allPlantsinit()" (click)="calculateArea(xGarden, yGarden)" class="btn btn-primary m-2">Refresh Plants</button>
     <button (click)="deleteAllPlants()" class="btn btn-danger m-2">Delete All</button>
     
 </div>
@@ -26,20 +26,24 @@
             <div class="list-group list-group-flush" 
                 *ngFor="let plant of plants | filter: uniqueGardenName: 'garden'| 
                 sort:[SortByParam, SortDirection]"
-                class="">
+                >
+
+                <!-- display first 4 plants in this column, slice???? -->
+                <div >
+                    
+                    <h3>Size {{plant.xGarden}} x {{plant.yGarden}}</h3>
+
+                    <div class="list-group-item">{{ plant.plant }}</div>
+                    <div class="list-group-item">Season: {{ plant.season }}</div>
+                    <div class="list-group-item">Density: {{ plant.perFoot }} per square foot</div>
+                    <div class="list-group-item">
+                        <button (click)="deletePlant(plant._id)" class="btn btn-danger m-2">
+                            Delete this Plant
+                        </button>
+                    </div>
+                </div>
 
                 
-
-                <h3>Size {{plant.xGarden}} x {{plant.yGarden}}</h3>
-
-                <div class="list-group-item">{{ plant.plant }}</div>
-                <div class="list-group-item">Season: {{ plant.season }}</div>
-                <div class="list-group-item">Density: {{ plant.perFoot }} per square foot</div>
-                <div class="list-group-item">
-                    <button (click)="deletePlant(plant._id)" class="btn btn-danger m-2">
-                        Delete this Plant
-                    </button>
-                </div>
             </div>
           </div>
     </div>
