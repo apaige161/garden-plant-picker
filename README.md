@@ -1,32 +1,36 @@
 INSTRUCTIONS: download this repo and garden-plant-picker-rest-api
 -npm install on both
--npm start on garden-plant-picker-rest-api
+-THEN
+-npm start on garden-plant-picker-rest-api/rest-api
 -ng serve on garden-plant-picker/my-garden
 
+BUGS: 
+  -user has to click refresh plants after adding a new garden to see it in the list of gardens and to see any gardens to filter from
+  -progress bar works for a 4x8 garden but not anything else. But why though!?
 
-RIGHT NOW: App just has crud operation on a single plant, boring right? Well when I have time I want to be able to aggregate these single plants together to store "raised garden beds" designs. Even later: A.) a user will be able to sign in and look at only his or her saved garden beds, along with adding more of course. OR B.)Show an idea of what the user is going to yied with the current garden/s
 
-IDEALLY: All of these things will come to life around a grand UI
+RIGHT NOW: A user can look at only his or her saved garden beds, along with adding more.
 
-WRITTEN BUT NOT IMPLEMENTED: [main.component.ts]This application displays a list of plants on the left and you can add these to another list on the right (plants to go in garden, staged). Think about how you get code on github. ADD things(array of plants) to a staging area, COMMIT list of plants to a larger conatiner.Repeat as nessecesary. And PUSH the final product(multiple arrays to be saved(not wired up to the DB yet) ).
-
+FUTURE: sign in, get produce yeilds, nice UI/UX
 
 TODO: Primary
 
-  research lifecycle hooks
+  fix progress bar
 
-  !!implement NgOnChange or figure out how to reload the plant list after every submit or change of list -sometimes works?? idk
+  wrap list of plants(to choose from) to the next column 2-4 columns
 
-  hard code in 4x4 garden size for now
-  -----limit user from adding more plants than the garden has space for ie 4x4 = 16 sq ft max
-  --slice array in new arrays for each column
+  build the math to see how much an optimal garden will produce based on the plants inside
+   
+  split main2 into 2 separate components, move the saved gardens to another page?
+   
+   
   
 
 UI: Secondary
    single page with a small button in the middle "Get Started" or something
    => animate into home page
    add an image for each veggie inside the popover
-   set up grid for the plants in garden to look like an actual square foot garden
+
    
 OTHER: Secondary
   add in potential yields for each crop
