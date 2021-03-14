@@ -1,179 +1,178 @@
-<div class="container">
+<div class="container-fluid">
   
     <div class="row justify-content-center align-items-center">
-  
-      
 
-      <div class="col-6">
+      <div class="col-12">
         <h1>The raised bed is {{xGardenMax}}' x {{yGardenMax}}'</h1>
+        
+        
       </div>
     </div>
-  
   
     <div class="row justify-content-center align-items-center">
   
       <!-- plant list -->
-      <div class="col col-6">
+      <div class="col col-6 justify-content-center align-items-center plant-list">
         <p>Click the plant for more info.</p>
         <div *ngFor="let item of fullPlant; index as i">
-          <div class="grid">
+          <div class="grid flex">
             <button type="button" class="btn btn-success mb-1"
               popover="Plant {{item.perFoot}} per foot in {{item.season}}. Zone: {{item.zone}}"
               [outsideClick]="true">
-              {{item.plant}}
+              {{item.plant |titlecase}}
             </button>
             <button (click)="addToGarden(i)" (click)="correctColumns()" class="btn btn-primary mb-1">Add</button>
           </div>
-        </div>
-        <div *ngIf="this.garden.length >= 8">
-          <p>Cannot stage any more plants in this column</p>
-          <p>Add these to your garden to start a new column</p>
         </div>
       </div>
 
       <div class="radio col-6">
 
-        <!-- radio buttons to choose xGardenMax-->
-        <h1>Rows</h1>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio1" value=1>
-          <label class="form-check-label" for="inlineRadio1">1</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio2" value=2>
-          <label class="form-check-label" for="inlineRadio2">2</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio3" value=3>
-          <label class="form-check-label" for="inlineRadio3">3</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio4" value=4>
-          <label class="form-check-label" for="inlineRadio4">4</label>
-        </div>
+        <div class="row">
+          <!-- radio buttons to choose xGardenMax-->
+          <h1>Rows</h1>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio1" value=1>
+            <label class="form-check-label" for="inlineRadio1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio2" value=2>
+            <label class="form-check-label" for="inlineRadio2">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio3" value=3>
+            <label class="form-check-label" for="inlineRadio3">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="xGardenMax" type="radio" name="xGardenMax" id="inlineRadio4" value=4>
+            <label class="form-check-label" for="inlineRadio4">4</label>
+          </div>
+
+          <!-- radio buttons to choose yGardenMax-->
+          <h1>Length</h1>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio1" value=1>
+            <label class="form-check-label" for="inlineRadio1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio2" value=2>
+            <label class="form-check-label" for="inlineRadio2">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio3" value=3>
+            <label class="form-check-label" for="inlineRadio3">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio4" value=4  >
+            <label class="form-check-label" for="inlineRadio4">4</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="xGardenMax" id="inlineRadio1" value=5>
+            <label class="form-check-label" for="inlineRadio5">5</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="xGardenMax" id="inlineRadio2" value=6>
+            <label class="form-check-label" for="inlineRadio5">6</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="xGardenMax" id="inlineRadio7" value=7>
+            <label class="form-check-label" for="inlineRadio7">7</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="xGardenMax" id="inlineRadio4" value=8>
+            <label class="form-check-label" for="inlineRadio8">8</label>
+          </div>
+      </div>
+      <div class="row">
+
+        <div class="row raised-bed">
+          <!-- Displays the number of columns based on user input -->
+          <!-- Creates a full garden bed -->
+          <!-- name only -->
+          <div class="container">
+            <h2>Name this garden bed:</h2>
+            <input type="text" #box />
+            <button (click)="saveName(box.value)" (click)="postToDb()"  class="btn btn-primary">Save</button>
+            <h4>NAME: <span>{{gardenName}}</span></h4>
+          </div>
+          
         
-        
-        <!-- radio buttons to choose yGardenMax-->
-        <h1>Length</h1>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio1" value=1>
-          <label class="form-check-label" for="inlineRadio1">1</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio2" value=2>
-          <label class="form-check-label" for="inlineRadio2">2</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio3" value=3>
-          <label class="form-check-label" for="inlineRadio3">3</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="yGardenMax" id="inlineRadio4" value=4  >
-          <label class="form-check-label" for="inlineRadio4">4</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="xGardenMax" id="inlineRadio1" value=5>
-          <label class="form-check-label" for="inlineRadio5">5</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="xGardenMax" id="inlineRadio2" value=6>
-          <label class="form-check-label" for="inlineRadio5">6</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="xGardenMax" id="inlineRadio7" value=7>
-          <label class="form-check-label" for="inlineRadio7">7</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="yGardenMax" type="radio" name="xGardenMax" id="inlineRadio4" value=8>
-          <label class="form-check-label" for="inlineRadio8">8</label>
+          <!-- displays only when 1 col is displayed -->
+          <div class="col-3 raised-bed-col" >
+            <icon-seedling></icon-seedling>
+            <div *ngFor="let item of firstCol; index as i">
+              <div class="">
+                <button type="button" class="btn btn-success mb-1"
+                  popover="Plant {{item.perFoot}} per foot in {{item.season}} col: {{item.col}}"
+                  [outsideClick]="true">
+                  {{item.plant}}
+                </button>
+              </div>
+            </div>
+            <div *ngIf="firstCol.length > 0">
+              <button (click)="clearColumn()" class="btn btn-info mb-1">Remove Column</button>
+            </div>
+          </div>
+      
+          <!-- displays only when 2 col are displayed -->
+          <div class="col-3 raised-bed-col" *ngIf="yGardenMax >= 2">
+            <icon-seedling></icon-seedling>
+            <div *ngFor="let item of secondCol; index as i">
+              <div class="">
+                <button type="button" class="btn btn-success mb-1"
+                  popover="Plant {{item.perFoot}} per foot in {{item.season}} col: {{item.col}}"
+                  [outsideClick]="true">
+                  {{item.plant}}
+                </button>
+              </div>
+            </div>
+            <div *ngIf="secondCol.length > 0">
+              <button (click)="clearSecondColumn()" class="btn btn-info mb-1">Remove Column</button>
+            </div>
+            
+          </div>
+      
+          <!-- displays only when 3 col are displayed -->
+          <div class="col-3 raised-bed-col" *ngIf="yGardenMax >= 3">
+            <icon-seedling></icon-seedling>
+            <div *ngFor="let item of thirdCol; index as i">
+              <div class="">
+                <button type="button" class="btn btn-success mb-1"
+                  popover="Plant {{item.perFoot}} per foot in {{item.season}} col: {{item.col}}"
+                  [outsideClick]="true">
+                  {{item.plant}}
+                </button>
+              </div>
+            </div>
+            <div *ngIf="thirdCol.length > 0">
+              <button (click)="clearThirdColumn()" class="btn btn-info mb-1">Remove Column</button>
+            </div>
+            
+          </div>
+      
+          <!-- displays only when 4 col are displayed -->
+          <div class="col-3 raised-bed-col" *ngIf="yGardenMax >= 4">
+            <icon-seedling></icon-seedling>
+            <div *ngFor="let item of fourthCol; index as i">
+              <div class="">
+                <button type="button" class="btn btn-success mb-1"
+                  popover="Plant {{item.perFoot}} per foot in {{item.season}} col: {{item.col}}"
+                  [outsideClick]="true">
+                  {{item.plant}}
+                </button>
+              </div>
+            </div>
+            <div *ngIf="fourthCol.length > 0">
+              <button (click)="clearFourthColumn()" class="btn btn-info mb-1">Remove Column</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-      
-    <!-- Displays the number of columns based on user input -->
-    <!-- Creates a full garden bed -->
-     
-    <div class="row raised-bed">
-  
-      <!-- name only -->
-      <div class="container">
-        <h2>Name this garden bed:</h2>
-        <input type="text" #box />
-        <button (click)="saveName(box.value)" (click)="postToDb()"  class="btn btn-primary">Save</button>
-        <h4>NAME: <span>{{gardenName}}</span></h4>
-      </div>
       
     
-      <!-- displays only when 1 col is displayed -->
-      <div class="col-3 raised-bed-col" >
-        <icon-seedling></icon-seedling>
-        <div *ngFor="let item of firstCol; index as i">
-          <div class="">
-            <button type="button" class="btn btn-success mb-1"
-              popover="Plant {{item.perFoot}} per foot in {{item.season}} col: {{item.col}}"
-              [outsideClick]="true">
-              {{item.plant}}
-            </button>
-          </div>
-        </div>
-        <div *ngIf="firstCol.length > 0">
-          <button (click)="clearColumn()" class="btn btn-info mb-1">Remove Column</button>
-        </div>
-      </div>
-  
-      <!-- displays only when 2 col are displayed -->
-      <div class="col-3 raised-bed-col" *ngIf="yGardenMax >= 2">
-        <icon-seedling></icon-seedling>
-        <div *ngFor="let item of secondCol; index as i">
-          <div class="">
-            <button type="button" class="btn btn-success mb-1"
-              popover="Plant {{item.perFoot}} per foot in {{item.season}} col: {{item.col}}"
-              [outsideClick]="true">
-              {{item.plant}}
-            </button>
-          </div>
-        </div>
-        <div *ngIf="secondCol.length > 0">
-          <button (click)="clearSecondColumn()" class="btn btn-info mb-1">Remove Column</button>
-        </div>
-        
-      </div>
-  
-      <!-- displays only when 3 col are displayed -->
-      <div class="col-3 raised-bed-col" *ngIf="yGardenMax >= 3">
-        <icon-seedling></icon-seedling>
-        <div *ngFor="let item of thirdCol; index as i">
-          <div class="">
-            <button type="button" class="btn btn-success mb-1"
-              popover="Plant {{item.perFoot}} per foot in {{item.season}} col: {{item.col}}"
-              [outsideClick]="true">
-              {{item.plant}}
-            </button>
-          </div>
-        </div>
-        <div *ngIf="thirdCol.length > 0">
-          <button (click)="clearThirdColumn()" class="btn btn-info mb-1">Remove Column</button>
-        </div>
-        
-      </div>
-  
-      <!-- displays only when 4 col are displayed -->
-      <div class="col-3 raised-bed-col" *ngIf="yGardenMax >= 4">
-        <icon-seedling></icon-seedling>
-        <div *ngFor="let item of fourthCol; index as i">
-          <div class="">
-            <button type="button" class="btn btn-success mb-1"
-              popover="Plant {{item.perFoot}} per foot in {{item.season}} col: {{item.col}}"
-              [outsideClick]="true">
-              {{item.plant}}
-            </button>
-          </div>
-        </div>
-        <div *ngIf="fourthCol.length > 0">
-          <button (click)="clearFourthColumn()" class="btn btn-info mb-1">Remove Column</button>
-        </div>
-      </div>
-    </div>
+     
+    
     
     
     <!-- get back saved data -->
@@ -183,12 +182,24 @@
 
     <!-- filter and sort -->
 
-    <!--
-      <label for="filterByGarden">Filter Gardens</label>
-      <select [(ngModel)]="Garden" #filterByGarden *ngFor="let item of plants">
-        <option value="item.garden">{{item.garden}}</option>
+    <button class="btn btn-primary" (click)=" getEachGardenNameOnce()" (click)="removeDuplicates(gardenNames)">Get single garden names</button>
+      <div *ngFor="let item of singleGardenNames">
+        <h4>{{item}}</h4><br>
+      </div>
+
+    
+    <!--<label for="filterByGarden">Filter Gardens</label>
+    <select [(ngModel)]="Garden" #filterByGarden *ngFor="let item of singleGardenNames">
+      <option value="item">{{item}}</option>
     -->
-      <button (click)="onGardenFilterClear()" class="btn btn-primary">Clear</button>
+
+    <label for="filterByGarden">Filter Gardens</label>
+        <input [(ngModel)]="Garden" type="text" #filterByGarden>
+
+    
+
+
+      <!-- <button (click)="onGardenFilterClear()" class="btn btn-primary">Clear</button> -->
 
       <label>Sort by: </label>
       <select [(ngModel)]='SortByParam' >

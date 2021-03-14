@@ -21,7 +21,10 @@ import { SortPipe } from './pipes/sort.pipe';
 import { NewGardenComponent } from './new-garden/new-garden.component';
 import { SortAndFilterComponent } from './sort-and-filter/sort-and-filter.component';
 import { AdminComponent } from './admin/admin.component';
-import { Main2Component } from './main2/main2.component'
+import { Main2Component } from './main2/main2.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import { Main2Component } from './main2/main2.component'
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+
 
   ],
   providers: [

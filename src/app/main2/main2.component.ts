@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { SinglePlant } from '../single-plant';
 import { FullPlant } from './../full-plant';
-import { PlantServerService } from './../services/plant-server.service'
+import { PlantServerService } from './../services/plant-server.service';
+
 
 
 
@@ -51,6 +52,13 @@ export class Main2Component implements OnInit {
       col: 0
     },
     {
+      plant: 'rosemary',
+      season: 'spring',
+      perFoot: 1,
+      zone: '7b',
+      col: 0
+    },
+    {
       plant: 'cabbage',
       season: 'summer',
       perFoot: 1,
@@ -79,6 +87,13 @@ export class Main2Component implements OnInit {
       col: 0
     },
     {
+      plant: 'bell pepper',
+      season: 'summer',
+      perFoot: 1,
+      zone: '7b',
+      col: 0
+    },
+    {
       plant: 'garlic',
       season: 'spring, fall',
       perFoot: 4,
@@ -88,17 +103,137 @@ export class Main2Component implements OnInit {
     {
       plant: 'basil',
       season: 'spring, fall',
-      perFoot: 1,
+      perFoot: 2,
       zone: '7b',
       col: 0
     },
     {
-      plant: 'lettuce',
+      plant: 'leaf lettuce',
       season: 'spring, fall',
       perFoot: 16,
       zone: '7b',
       col: 0
     },
+    {
+      plant: 'head lettuce',
+      season: 'spring, fall',
+      perFoot: 1,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'arugula',
+      season: 'spring, fall',
+      perFoot: 16,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'kale',
+      season: 'spring, fall',
+      perFoot: 1,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'carrot',
+      season: 'spring, fall',
+      perFoot: 16,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'pole beans',
+      season: 'spring, fall',
+      perFoot: 1,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'spinach',
+      season: 'spring, fall',
+      perFoot: 9,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'parsnips',
+      season: 'spring, fall',
+      perFoot: 9,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'leeks',
+      season: 'spring, fall',
+      perFoot: 6,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'broccoli',
+      season: 'spring, fall',
+      perFoot: 1,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'cauliflower',
+      season: 'spring, fall',
+      perFoot: 1,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'bok choy',
+      season: 'spring, fall',
+      perFoot: 1,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'radishes',
+      season: 'spring, fall',
+      perFoot: 16,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'beets',
+      season: 'spring, fall',
+      perFoot: 9,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'peas',
+      season: 'spring, fall',
+      perFoot: 8,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'celery',
+      season: 'spring, fall',
+      perFoot: 1,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'parsley',
+      season: 'spring, fall',
+      perFoot: 2,
+      zone: '7b',
+      col: 0
+    },
+    {
+      plant: 'swiss chard',
+      season: 'spring, fall',
+      perFoot: 2,
+      zone: '7b',
+      col: 0
+    },
+
   ];
 
   //arrays where plants can be stored
@@ -264,16 +399,39 @@ export class Main2Component implements OnInit {
 
     Garden = '';
     SearchGarden = '';
+    gardenNames = [];
+    singleGardenNames = [];
 
     SortByParam = 'garden';
     SortDirection = 'asc'
 
-    /*
+    //get each garden name
+    getEachGardenNameOnce(){
+
+      //push all garden names to array
+      this.plants.forEach(item => {
+        this.gardenNames.push(item.garden)
+      });
+    }
+
+    //remove duplicates
+    removeDuplicates(arr){
+
+      //convert to a set which only allows unique values
+      const uniqueSet = new Set(arr);
+
+      //convert back to an array
+      this.singleGardenNames = [...uniqueSet];
+
+    }
+
+
+    
     //filter button logic
     onGardenFilter() {
       this.SearchGarden = this.Garden;
     }
-    */
+    
 
     onGardenFilterClear() {
       this.SearchGarden = '';
