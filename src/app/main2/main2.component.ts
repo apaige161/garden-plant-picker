@@ -282,25 +282,38 @@ export class Main2Component implements OnInit {
     plant.zone = this.fullPlant[plantToAdd].plant;
     plant.col = 0;
 
-    //push plant to first row
-    if(this.firstCol.length <= (this.yGardenMax -1)) {
-      this.firstCol.push(plant);
+    if( (this.xGardenMax * this.yGardenMax) 
+      > (this.firstCol.length 
+          + this.secondCol.length 
+          + this.thirdCol.length 
+          + this.fourthCol.length) 
+    ) {
+
+
+      //push plant to first row
+      if(this.firstCol.length <= (this.yGardenMax -1)) {
+        this.firstCol.push(plant);
+      }
+
+      //push plant to second row
+      else if( (this.firstCol.length >= (this.yGardenMax -1)) && (this.secondCol.length <= (this.yGardenMax -1)) ) {
+        this.secondCol.push(plant);
+      }
+
+      //push plant to third row
+      else if( (this.secondCol.length >= (this.yGardenMax -1)) && (this.thirdCol.length <= (this.yGardenMax -1))) {
+        this.thirdCol.push(plant);
+      }
+
+      //push plant to fourth row
+      else if( (this.thirdCol.length >= (this.yGardenMax -1)) && (this.fourthCol.length <= (this.yGardenMax -1))) {
+        this.fourthCol.push(plant);
+      }
+
+
     }
 
-    //push plant to second row
-    else if(this.firstCol.length >= (this.yGardenMax -1) && this.secondCol.length <= (this.yGardenMax -1)) {
-      this.secondCol.push(plant);
-    }
-
-    //push plant to third row
-    else if(this.secondCol.length >= (this.yGardenMax -1) && this.thirdCol.length <= (this.yGardenMax -1)) {
-      this.thirdCol.push(plant);
-    }
-
-    //push plant to fourth row
-    else if(this.thirdCol.length >= (this.yGardenMax -1) && this.fourthCol.length <= (this.yGardenMax -1)) {
-      this.fourthCol.push(plant);
-    }
+    
   }
 
   correctColumns(){
