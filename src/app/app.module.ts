@@ -23,6 +23,9 @@ import { SortAndFilterComponent } from './sort-and-filter/sort-and-filter.compon
 import { AdminComponent } from './admin/admin.component';
 import { Main2Component } from './main2/main2.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 
@@ -50,6 +53,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    DragDropModule,
+    MatProgressBarModule,
+    MatSliderModule,
 
 
   ],

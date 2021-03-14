@@ -4,6 +4,9 @@ import { SinglePlant } from '../single-plant';
 import { FullPlant } from './../full-plant';
 import { PlantServerService } from './../services/plant-server.service';
 
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 
@@ -40,6 +43,12 @@ export class Main2Component implements OnInit {
   //max number of square feet
   yGardenMax: number = 4;
   xGardenMax: number = 8;
+
+  spaceAvailable = 0;
+  plantsInProposedGarden = 0;
+  progress = 0;
+  factor = 0;
+  test = 0;
 
   //array to hold the plant objects
   //TODO: move these objects to the api 
@@ -239,7 +248,6 @@ export class Main2Component implements OnInit {
   //arrays where plants can be stored
   
   //staging area
-  garden: FullPlant[] = [];
 
   firstCol: FullPlant[] = [];
 
@@ -250,6 +258,8 @@ export class Main2Component implements OnInit {
   fourthCol: FullPlant[] = [];
   
   gardenName:string = "";
+
+  garden = [this.firstCol, this.secondCol, this.thirdCol, this.fourthCol];
 
 
   //holds the value of each column of plants
@@ -271,6 +281,31 @@ export class Main2Component implements OnInit {
     this.gardenName = val;
   }
 
+  /****************************
+   * 
+   * progress bar logic
+   * 
+   ***************************/
+  totalPossiblePlants(){
+    this.spaceAvailable = this.xGardenMax * this.yGardenMax
+  }
+
+  reduceSpace(){
+    this.spaceAvailable --;
+  }
+
+  calculateProgress() {
+
+    //each item will ake up this much room
+    this.factor = 100 / this.spaceAvailable;
+
+    this.progress = this.progress + (this.factor * 2);
+
+    this.test = this.factor * 100;
+  }
+
+  
+
   /*add plants here*/
   addToGarden(plantToAdd: number) {
 
@@ -288,8 +323,6 @@ export class Main2Component implements OnInit {
           + this.thirdCol.length 
           + this.fourthCol.length) 
     ) {
-
-
       //push plant to first row
       if(this.firstCol.length <= (this.yGardenMax -1)) {
         this.firstCol.push(plant);
@@ -309,11 +342,7 @@ export class Main2Component implements OnInit {
       else if( (this.thirdCol.length >= (this.yGardenMax -1)) && (this.fourthCol.length <= (this.yGardenMax -1))) {
         this.fourthCol.push(plant);
       }
-
-
     }
-
-    
   }
 
   correctColumns(){
@@ -332,6 +361,11 @@ export class Main2Component implements OnInit {
     this.fourthCol.forEach(item => {
       item.col = 4;
     });
+  }
+
+  //drop event, for drag and drop
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
   }
 
 
@@ -410,7 +444,7 @@ export class Main2Component implements OnInit {
 
    /****************START sort and filter*******************/
 
-    Garden = '';
+    Garden = 'aaa';
     SearchGarden = '';
     gardenNames = [];
     singleGardenNames = [];
@@ -418,25 +452,7 @@ export class Main2Component implements OnInit {
     SortByParam = 'garden';
     SortDirection = 'asc'
 
-    //get each garden name
-    getEachGardenNameOnce(){
-
-      //push all garden names to array
-      this.plants.forEach(item => {
-        this.gardenNames.push(item.garden)
-      });
-    }
-
-    //remove duplicates
-    removeDuplicates(arr){
-
-      //convert to a set which only allows unique values
-      const uniqueSet = new Set(arr);
-
-      //convert back to an array
-      this.singleGardenNames = [...uniqueSet];
-
-    }
+    
 
 
     
@@ -488,8 +504,36 @@ export class Main2Component implements OnInit {
     this.allPlantsinit();
   }
 
-  ngOnInit() {
-    this.allPlantsinit();
+  //get each garden name
+  getEachGardenNameOnce(){
+
+    //push all garden names to array
+    this.plants.forEach(item => {
+      this.gardenNames.push(item.garden)
+    });
+    console.log('added all garden names')
   }
 
+  //remove duplicates
+  removeDuplicates(arr){
+
+    //convert to a set which only allows unique values
+    const uniqueSet = new Set(arr);
+
+    //convert back to an array
+    this.singleGardenNames = [...uniqueSet];
+    console.log('removed duplicate garden names')
+
+  }
+
+  ngOnInit() {
+    this.allPlantsinit();
+    this.totalPossiblePlants();
+    //this.calculateProgress()
+    this.getEachGardenNameOnce();
+    this.removeDuplicates(this.gardenNames);
+  }
+
+
+  
 }
