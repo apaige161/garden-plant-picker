@@ -11,9 +11,7 @@ FUTURE: sign in, get produce yeilds, filter by garden, nice UI
 
 TODO: Primary
 
-  filter each garden based on the garden name,
-    -make dropdown to display a list of gardens to have a look at --remove duplicates
-    -display the gardens in nice rows/columns, display popover for more info on each plant
+  fix the drag and drop in the proposed garden
    
    build the math to see how much an optimal garden will produce based on the plants inside
    
