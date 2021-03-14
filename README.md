@@ -4,23 +4,26 @@ INSTRUCTIONS: download this repo and garden-plant-picker-rest-api
 -npm start on garden-plant-picker-rest-api/rest-api
 -ng serve on garden-plant-picker/my-garden
 
+BUGS: 
+  -user has to click refresh plants after adding a new garden to see it in the list of gardens and to see any gardens to filter from
+  -progress bar works for a 4x8 garden but not anything else. But why though!?
+
 
 RIGHT NOW: A user can look at only his or her saved garden beds, along with adding more.
 
-FUTURE: sign in, get produce yeilds, filter by garden, nice UI
+FUTURE: sign in, get produce yeilds, nice UI/UX
 
 TODO: Primary
 
-  fix the drag and drop in the proposed garden
-    --done-needs to be able to move items in the row 
-    -&& needs to be able to move rows from side to side
-    -nested drag and drop lists??
+  fix progress bar
+
+  wrap list of plants(to choose from) to the next column 2-4 columns
+
+  build the math to see how much an optimal garden will produce based on the plants inside
    
-   build the math to see how much an optimal garden will produce based on the plants inside
+  split main2 into 2 separate components, move the saved gardens to another page?
    
-   split main2 into 2 separate components, move the saved gardens to another page?
    
-   wrap list of plants(to choose from) to the next column 2-4 columns
   
 
 UI: Secondary
