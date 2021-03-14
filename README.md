@@ -12,6 +12,9 @@ FUTURE: sign in, get produce yeilds, filter by garden, nice UI
 TODO: Primary
 
   fix the drag and drop in the proposed garden
+    -needs to be able to move items in the row 
+    -&& needs to be able to move rows from side to side
+    -nested drag and drop lists??
    
    build the math to see how much an optimal garden will produce based on the plants inside
    
