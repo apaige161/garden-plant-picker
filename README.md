@@ -21,9 +21,9 @@ TODO: Primary
   test "calculateProgress()"
   disable add button when a garden is full --inside "calculateProgress()"
   
-  button to reset the propossed garden
+  --done?-button to reset the propossed garden -test
 
-  wrap list of plants(to choose from) to the next column 2-4 columns
+  wrap list of plants(to choose from) to the next column 2-4 columns based on screen size
 
   build the math to see how much an optimal garden will produce based on the plants inside
    
