@@ -5,8 +5,11 @@ INSTRUCTIONS: download this repo and garden-plant-picker-rest-api
 -ng serve on garden-plant-picker/my-garden
 
 BUGS: 
+  --local host wont load
   -user has to click refresh plants after adding a new garden to see it in the list of gardens and to see any gardens to filter from
   -progress bar works for a 4x8 garden but not anything else. But why though!?
+  -error mess in console... "ERROR TypeError: Cannot read property 'forEach' of undefined
+    at Main2Component.getEachGardenNameOnce"
 
 
 RIGHT NOW: A user can look at only his or her saved garden beds, along with adding more.
@@ -14,8 +17,11 @@ RIGHT NOW: A user can look at only his or her saved garden beds, along with addi
 FUTURE: sign in, get produce yeilds, nice UI/UX
 
 TODO: Primary
-
-  fix progress bar
+  
+  test "calculateProgress()"
+  disable add button when a garden is full --inside "calculateProgress()"
+  
+  button to reset the propossed garden
 
   wrap list of plants(to choose from) to the next column 2-4 columns
 
