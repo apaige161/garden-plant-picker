@@ -16,18 +16,26 @@
         <p>Click the plant for more info.</p>
         <div *ngFor="let item of fullPlant; index as i">
           <div class="grid flex row">
+
             <div type="button" class="btn btn-light mb-1"
-              popover="Plant {{item.perFoot}} per foot in {{item.season}}. Zone: {{item.zone}}"
+              popover=
+              "Plant {{item.perFoot}} 
+              per foot in {{item.season}}. 
+              Zone: {{item.zone}}"
               [outsideClick]="true">
+
               <button class="btn btn-primary mb-1 col-8">{{item.plant | titlecase}}</button>
               
-              <button (click)="addToGarden(i)" 
+              <button 
+                (click)="this.totalPossiblePlants()"
+                (click)="this.calculateProgress()"
+                (click)="addToGarden(i)" 
                 (click)="correctColumns()" 
-                (click)="totalPossiblePlants()"
-                (click)="calculateProgress()"
-                
-                
-                class="btn btn-success mb-1 col-2">+</button>
+                (click)="addToProgressBar()"
+                (click)="disableGardenMax()"
+                class="btn btn-success mb-1 col-2"
+                [disabled]="disableAddPlants"
+              >+</button>
             </div>
             
           </div>
@@ -41,15 +49,19 @@
           <div class="col-4">
             <!-- slider to choose xGardenMax-->
             <h1>Rows: {{xGardenMax}}</h1>
-            <mat-slider [(ngModel)]="xGardenMax" min="1" max="4" step="1" value="4"></mat-slider>
+            <mat-slider 
+              [(ngModel)]="xGardenMax" min="1" max="4" step="1"
+              [disabled]="xGardenDisable" ></mat-slider>
 
             <!-- slider to choose yGardenMax-->
             <h1>Length: {{yGardenMax}}</h1>
-            <mat-slider [(ngModel)]="yGardenMax" verticle min="1" max="8" step="1" value="4"></mat-slider>
+            <mat-slider 
+            [(ngModel)]="yGardenMax" verticle min="1" max="8" step="1"
+            [disabled]="yGardenDisable" ></mat-slider>
           </div>
 
           <div class="col-4">
-            <h2>Space Available in this garden: {{spaceAvailable}}</h2>
+            
           </div>
           
           <div class="col-4">
@@ -73,15 +85,19 @@
 
             <!-- Progress bar -->
             <mat-progress-bar mode="determinate" [value]="progress" min="0"></mat-progress-bar><br>
+            
+            
             <button
               (click)="this.totalPossiblePlants()"
               (click)="this.calculateProgress()">Calculate progress</button>
+            
             <h4>
-              Progress out of 100: {{progress}} %    
-            </h4><br>
-            <p>
-              //available space: {{spaceAvailable}}//
-            </p><br>
+              Progress {{progress}} %    
+              <button (click)="resetProgress()" class="btn btn-primary">Reset Progress</button>
+            </h4>
+            <br>
+            <h2>Space Available in this garden: {{spaceAvailable}}</h2>
+            <br>
             <p>
               each plant will take this amount of room: {{factor}}, {{test}} should equal 100
             </p><br>
@@ -111,7 +127,7 @@
               </div>
             </div>
               <div *ngIf="firstCol.length > 0">
-                <button (click)="clearColumn()" class="btn btn-info mb-1">Remove Column</button>
+                <button (click)="clearColumn(firstCol)" (click)="calculateProgress()" class="btn btn-info mb-1">Remove Column</button>
               </div>
           </div>
 
@@ -135,7 +151,7 @@
               </div>
             </div>
               <div *ngIf="secondCol.length > 0">
-                <button (click)="clearSecondColumn()" class="btn btn-info mb-1">Remove Column</button>
+                <button (click)="clearColumn(secondCol)" (click)="calculateProgress()" class="btn btn-info mb-1">Remove Column</button>
               </div>
           </div>
 
@@ -159,7 +175,7 @@
               </div>
             </div>
               <div *ngIf="thirdCol.length > 0">
-                <button (click)="clearThirdColumn()" class="btn btn-info mb-1">Remove Column</button>
+                <button (click)="clearColumn(thirdCol)" (click)="calculateProgress()" class="btn btn-info mb-1">Remove Column</button>
               </div>
           </div>
 
@@ -183,7 +199,7 @@
                 </div>
             </div>
               <div *ngIf="fourthCol.length > 0">
-                <button (click)="clearFourthColumn()" class="btn btn-info mb-1">Remove Column</button>
+                <button (click)="clearColumn(fourthCol)" (click)="calculateProgress()" class="btn btn-info mb-1">Remove Column</button>
               </div>
           </div>
         </div>

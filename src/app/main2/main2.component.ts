@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { SinglePlant } from '../single-plant';
 import { FullPlant } from './../full-plant';
 import { PlantServerService } from './../services/plant-server.service';
@@ -13,7 +13,8 @@ import {MatSliderModule} from '@angular/material/slider';
 @Component({
   selector: 'app-main',
   templateUrl: './main2.component.html',
-  styleUrls: ['./main2.component.css']
+  styleUrls: ['./main2.component.css'],
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Main2Component implements OnInit {
 
@@ -41,14 +42,33 @@ export class Main2Component implements OnInit {
   title = 'my-garden';
 
   //max number of square feet
-  yGardenMax: number = 4;
-  xGardenMax: number = 8;
+  xGardenMax: number = 2;
+  yGardenMax: number = 2;
 
+  xGardenDisable: boolean = false;
+  
+  yGardenDisable: boolean = false;
+
+
+  
+
+  /*** Progress variables ***/
   spaceAvailable = 0;
   plantsInProposedGarden = 0;
+
   progress = 0;
+
+  //100% progress
+  //full: boolean;
+
   factor = 0;
+  //disabled = true
+  disableAddPlants = true;
+
+  //used for error handling
   test = 0;
+
+
 
   //array to hold the plant objects
   //TODO: move these objects to the api 
@@ -294,15 +314,61 @@ export class Main2Component implements OnInit {
     this.spaceAvailable --;
   }
 
+  addToProgressBar() {
+    this.progress = this.progress + (this.factor);
+  }
+
+  resetProgress(){
+    this.progress = 0;
+    this.disableAddPlants = false;
+    this.firstCol = [];
+    this.secondCol = [];
+    this.thirdCol = [];
+    this.fourthCol = [];
+    
+    //enable booleans
+    this.xGardenDisable = false;
+    this.yGardenDisable = false;
+  }
+
+  /*
+  subtractFromSpaceAvailable(num: number) {
+    this.spaceAvailable = (this.spaceAvailable - this.factor) * num;
+    //this.totalPossiblePlants();
+  }
+  */
+
+  //TODO: examine function --always running?
+  
   calculateProgress() {
+
+    //cannot add plants
+    this.disableAddPlants = true;
 
     //each item will ake up this much room
     this.factor = 100 / this.spaceAvailable;
 
-    this.progress = this.progress + (this.factor * 2);
+    //error handling
+    if((this.test = this.factor * this.spaceAvailable) != 100) {
+      console.log("There was an error in calculating the progress of proposed garden")
+    }
+      
+    if(this.progress < (100)){
 
-    this.test = this.factor * 100;
+      //enable adding plants
+      this.disableAddPlants = false;
+
+      //add in the last plant to total, check if that plant makes it 100% full
+      if((this.progress + this.factor) >= 100) {
+        this.disableAddPlants = true;
+        console.log("progress is >= 100");
+        //this.progress = 100;
+        console.log("progress is == 100");
+      }
+    }
+
   }
+  
 
   
 
@@ -369,17 +435,24 @@ export class Main2Component implements OnInit {
   }
 
 
-
-
-
   //remove item by index
   removeFromGarden(removePlant: number) {
     this.garden.splice(removePlant, 1);
   }
 
+  disableGardenMax(){
+    //disable booleans
+    this.xGardenDisable = true;
+    this.yGardenDisable = true;
+
+  }
+
   //reset garden array
   clearGarden() {
+    
     this.garden = [];
+    
+
   }
 
 
@@ -389,21 +462,18 @@ export class Main2Component implements OnInit {
     this.firstCol.splice(removePlant, 1);
   }
 
-  clearColumn() {
+  clearColumn(column) {
+    //remove this many plants from progress
+    this.progress -= (column.length * this.factor);
+    //reset col
     this.firstCol = [];
+
+    //if there is room in the garden allow adding of plants
+    if(this.progress < 100) {
+      this.disableAddPlants = false;
+    }
   }
 
-  clearSecondColumn() {
-    this.secondCol = [];
-  }
-
-  clearThirdColumn() {
-    this.thirdCol = [];
-  }
-
-  clearFourthColumn() {
-    this.fourthCol = [];
-  }
 
 
  
@@ -529,10 +599,11 @@ export class Main2Component implements OnInit {
   ngOnInit() {
     this.allPlantsinit();
     this.totalPossiblePlants();
-    //this.calculateProgress()
+    this.calculateProgress();
     this.getEachGardenNameOnce();
     this.removeDuplicates(this.gardenNames);
   }
+
 
 
   
