@@ -6,18 +6,20 @@ INSTRUCTIONS: download this repo and garden-plant-picker-rest-api
 
 BUGS: 
   -user has to click refresh plants after adding a new garden to see it in the list of gardens and to see any gardens to filter from
-  -progress bar works for a 4x8 garden but not anything else. But why though!?
+  
+  -error mess in console... "ERROR TypeError: Cannot read property 'forEach' of undefined
+    at Main2Component.getEachGardenNameOnce"
 
 
-RIGHT NOW: A user can look at only his or her saved garden beds, along with adding more.
+RIGHT NOW: A user can look at saved garden beds, along with adding more.
 
 FUTURE: sign in, get produce yeilds, nice UI/UX
 
 TODO: Primary
+  
+  --BUG-progress bar going over 100%
 
-  fix progress bar
-
-  wrap list of plants(to choose from) to the next column 2-4 columns
+  wrap list of plants(to choose from) to the next column 2-4 columns based on screen size
 
   build the math to see how much an optimal garden will produce based on the plants inside
    
