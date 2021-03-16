@@ -9,6 +9,8 @@ BUGS:
   
   -error mess in console... "ERROR TypeError: Cannot read property 'forEach' of undefined
     at Main2Component.getEachGardenNameOnce"
+    --may have to do with how things are loaded into the website (get all plants may be taking longer than it takes to start this function)
+    --put that function on another lifecycle hook, ngOnAfterContentInit
 
 
 RIGHT NOW: A user can choose a garden size, add new gardens with at least one plant in them, filter and sort saved gardens.
