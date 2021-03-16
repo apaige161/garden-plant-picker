@@ -55,7 +55,6 @@ export class Main2Component implements OnInit {
   /*** Progress variables ***/
   spaceAvailable = 0;
   plantsInProposedGarden = 0;
-
   progress = 0;
 
   //100% progress
@@ -310,9 +309,7 @@ export class Main2Component implements OnInit {
     this.spaceAvailable = this.xGardenMax * this.yGardenMax
   }
 
-  reduceSpace(){
-    this.spaceAvailable --;
-  }
+  
 
   addToProgressBar() {
     this.progress = this.progress + (this.factor);
@@ -325,7 +322,7 @@ export class Main2Component implements OnInit {
     this.secondCol = [];
     this.thirdCol = [];
     this.fourthCol = [];
-    
+
     //enable booleans
     this.xGardenDisable = false;
     this.yGardenDisable = false;
@@ -338,7 +335,6 @@ export class Main2Component implements OnInit {
   }
   */
 
-  //TODO: examine function --always running?
   
   calculateProgress() {
 
@@ -361,13 +357,13 @@ export class Main2Component implements OnInit {
       //add in the last plant to total, check if that plant makes it 100% full
       if((this.progress + this.factor) >= 100) {
         this.disableAddPlants = true;
-        console.log("progress is >= 100");
-        //this.progress = 100;
-        console.log("progress is == 100");
+        
       }
     }
 
   }
+
+  
   
 
   

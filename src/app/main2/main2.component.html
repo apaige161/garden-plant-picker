@@ -33,6 +33,7 @@
                 (click)="correctColumns()" 
                 (click)="addToProgressBar()"
                 (click)="disableGardenMax()"
+                
                 class="btn btn-success mb-1 col-2"
                 [disabled]="disableAddPlants"
               >+</button>
@@ -46,23 +47,36 @@
 
         <div class="row">
 
-          <div class="col-4">
-            <!-- slider to choose xGardenMax-->
-            <h1>Rows: {{xGardenMax}}</h1>
-            <mat-slider 
-              [(ngModel)]="xGardenMax" min="1" max="4" step="1"
-              [disabled]="xGardenDisable" ></mat-slider>
-
-            <!-- slider to choose yGardenMax-->
-            <h1>Length: {{yGardenMax}}</h1>
-            <mat-slider 
-            [(ngModel)]="yGardenMax" verticle min="1" max="8" step="1"
-            [disabled]="yGardenDisable" ></mat-slider>
-          </div>
-
-          <div class="col-4">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6">
+                <!-- slider to choose xGardenMax-->
+                <h1>Rows: {{xGardenMax}}</h1>
+                <mat-slider 
+                  #xGarden
+                  thumbLabel
+                  tickInterval="1"
+                  [(ngModel)]="xGardenMax" min="1" max="4" step="1"
+                  [disabled]="xGardenDisable" ></mat-slider>
+              </div>
+              
+              <div class="col-6">
+                <!-- slider to choose yGardenMax-->
+                <h1>Length: {{yGardenMax}}</h1>
+                <mat-slider 
+                  #yGarden
+                  thumbLabel
+                  tickInterval="1"
+                  vertical
+                  invert
+                  [(ngModel)]="yGardenMax"  min="1" max="8" step="1"
+                  [disabled]="yGardenDisable" ></mat-slider>
+              </div>
+              
+            </div>
             
           </div>
+
           
           <div class="col-4">
             <h2>Name this garden bed:</h2>
@@ -86,23 +100,11 @@
             <!-- Progress bar -->
             <mat-progress-bar mode="determinate" [value]="progress" min="0"></mat-progress-bar><br>
             
-            
-            <button
-              (click)="this.totalPossiblePlants()"
-              (click)="this.calculateProgress()">Calculate progress</button>
-            
             <h4>
-              Progress {{progress}} %    
+              Progress {{progress | number: '1.0-0'}} %    
               <button (click)="resetProgress()" class="btn btn-primary">Reset Progress</button>
             </h4>
-            <br>
-            <h2>Space Available in this garden: {{spaceAvailable}}</h2>
-            <br>
-            <p>
-              each plant will take this amount of room: {{factor}}, {{test}} should equal 100
-            </p><br>
 
-            
           </div>
           
           
