@@ -33,6 +33,7 @@
                 (click)="correctColumns()" 
                 (click)="addToProgressBar()"
                 (click)="disableGardenMax()"
+                (click)="canSave()"
                 
                 class="btn btn-success mb-1 col-2"
                 [disabled]="disableAddPlants"
@@ -43,10 +44,8 @@
         </div>
       </div>
 
-      <div class="radio col-6">
-
+      <div class="radio col-6"> <!-- new garden input -->
         <div class="row">
-
           <div class="col-6">
             <div class="row">
               <div class="col-6">
@@ -72,20 +71,27 @@
                   [(ngModel)]="yGardenMax"  min="1" max="8" step="1"
                   [disabled]="yGardenDisable" ></mat-slider>
               </div>
-              
             </div>
-            
           </div>
 
           
-          <div class="col-4">
+          <div class="col-6">
             <h2>Name this garden bed:</h2>
-            <input type="text" #box />
-            <button (click)="saveName(box.value)" (click)="postToDb()"  class="btn btn-primary">Save</button>
-            <h4>NAME: <span>{{gardenName}}</span></h4>
+            <input type="text" class="form-control" #name 
+              required
+              [(ngModel)]="gardenName" >
+
+            <button 
+              (click)="postToDb()"
+              (click)="canSave()"
+              [disabled]="saveDisable"
+              class="btn btn-primary">Save</button>
+
+            <div *ngIf="gardenName">
+              <h4> {{gardenName | titlecase}} was added to the saved gardens!</h4>
+            </div>
+
           </div>
-
-
       </div>
 
       <div class="">

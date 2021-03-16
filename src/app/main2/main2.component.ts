@@ -296,9 +296,39 @@ export class Main2Component implements OnInit {
   
   //save name from user input && store values
   /*** Add validation to not allow saving unnamed gardens **/
-  saveName(val){
-    this.gardenName = val;
+
+  // true = disabled
+  saveDisable: boolean = true;
+
+  
+  canSave(){
+    if((this.progress > 1) && (this.gardenName.length > 2)){
+      console.log("progress above 1 --disabled")
+      console.log("name is longer than 2 char --disabled")
+      this.saveDisable = false;
+
+      
+      //only allow if the garden name isnt already taken
+      this.singleGardenNames.forEach(name => {
+        if(this.gardenName != name){
+          this.saveDisable = false;
+          console.log("no current gardens with the same name")
+        } else { 
+          this.saveDisable = true;
+          console.log("a duplicate name was discovered, try a new name")
+        }
+        
+      });
+
+    }
   }
+  
+
+
+
+
+
+
 
   /****************************
    * 
@@ -594,10 +624,12 @@ export class Main2Component implements OnInit {
 
   ngOnInit() {
     this.allPlantsinit();
+    
     this.totalPossiblePlants();
     this.calculateProgress();
     this.getEachGardenNameOnce();
     this.removeDuplicates(this.gardenNames);
+    
   }
 
 
