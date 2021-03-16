@@ -11,15 +11,19 @@ BUGS:
     at Main2Component.getEachGardenNameOnce"
 
 
-RIGHT NOW: A user can look at saved garden beds, along with adding more.
+RIGHT NOW: A user can choose a garden size, add new gardens with at least one plant in them, filter and sort saved gardens.
 
 FUTURE: sign in, get produce yeilds, nice UI/UX
 
 TODO: Primary
-  
-  --BUG-progress bar going over 100%
+
+  --done- disable save button when there is no name 
+  AND 
+  --not done- do not allow saves of duplicate named gardens
 
   wrap list of plants(to choose from) to the next column 2-4 columns based on screen size
+  
+  create a better UI for displaying saved plants from the DB
 
   build the math to see how much an optimal garden will produce based on the plants inside
    
