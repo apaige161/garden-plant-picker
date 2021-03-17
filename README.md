@@ -9,21 +9,27 @@ BUGS:
   
   -error mess in console... "ERROR TypeError: Cannot read property 'forEach' of undefined
     at Main2Component.getEachGardenNameOnce"
+    --may have to do with how things are loaded into the website (get all plants may be taking longer than it takes to start this function)
+    --put that function on another lifecycle hook, ngOnAfterContentInit
 
 
-RIGHT NOW: A user can look at saved garden beds, along with adding more.
+RIGHT NOW: A user can choose a garden size, add new gardens with at least one plant in them, filter and sort saved gardens.
 
 FUTURE: sign in, get produce yeilds, nice UI/UX
 
 TODO: Primary
-  
-  --BUG-progress bar going over 100%
 
   wrap list of plants(to choose from) to the next column 2-4 columns based on screen size
+  
+  -create a better UI for displaying saved plants from the DB
 
   build the math to see how much an optimal garden will produce based on the plants inside
    
   split main2 into 2 separate components, move the saved gardens to another page?
+  
+  canSave() method - loads in list of gardenNames, put (gardenNames) inside a ngOnChanges hook
+    -re run this function based on the value change of (gardenName)
+    -put gardenName inside ngOnChanges function
    
    
   
