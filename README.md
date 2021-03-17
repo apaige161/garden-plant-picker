@@ -23,7 +23,7 @@ TODO: Primary
   
   -create a better UI for displaying saved plants from the DB
     -create a plant card to display each plant with various details
-    -create a decent looking table? or similar to hold data
+    -create multiple tables, one to store info about each column (plant.col)
 
   build the math to see how much an optimal garden will produce based on the plants inside
    
