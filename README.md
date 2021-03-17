@@ -19,17 +19,17 @@ FUTURE: sign in, get produce yeilds, nice UI/UX
 
 TODO: Primary
 
-  --done- disable save button when there is no name 
-  AND 
-  --not done- do not allow saves of duplicate named gardens
-
   wrap list of plants(to choose from) to the next column 2-4 columns based on screen size
   
-  create a better UI for displaying saved plants from the DB
+  -create a better UI for displaying saved plants from the DB
 
   build the math to see how much an optimal garden will produce based on the plants inside
    
   split main2 into 2 separate components, move the saved gardens to another page?
+  
+  canSave() method - loads in list of gardenNames, put (gardenNames) inside a ngOnChanges hook
+    -re run this function based on the value change of (gardenName)
+    -put gardenName inside ngOnChanges function
    
    
   
