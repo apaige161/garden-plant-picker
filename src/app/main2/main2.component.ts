@@ -278,6 +278,8 @@ export class Main2Component implements OnInit {
   
   gardenName:string = "";
 
+
+
   garden = [this.firstCol, this.secondCol, this.thirdCol, this.fourthCol];
 
 
@@ -301,25 +303,32 @@ export class Main2Component implements OnInit {
   saveDisable: boolean = true;
 
   
+
+  
   canSave(){
     if((this.progress > 1) && (this.gardenName.length > 2)){
       console.log("progress above 1 --disabled")
       console.log("name is longer than 2 char --disabled")
-      this.saveDisable = false;
 
-      
-      //only allow if the garden name isnt already taken
-      this.singleGardenNames.forEach(name => {
-        if(this.gardenName != name){
+      //load garden names
+      this.getEachGardenNameOnce();
+      this.removeDuplicates(this.gardenNames);
+
+      //check input name to existing names to validate
+      //break out of function if one is found
+      for (let index = 0; index < this.gardenNames.length; index++) {
+        console.log(this.gardenNames[index]);
+
+        if(this.gardenNames[index] != this.gardenName){
           this.saveDisable = false;
-          console.log("no current gardens with the same name")
+          console.log("no current gardens with the same name, allow save")
         } else { 
           this.saveDisable = true;
-          console.log("a duplicate name was discovered, try a new name")
+          console.log("a duplicate name was discovered, try a new name, no save allowed")
+          break;
         }
         
-      });
-
+      }
     }
   }
   
@@ -347,6 +356,7 @@ export class Main2Component implements OnInit {
 
   resetProgress(){
     this.progress = 0;
+    this.gardenName = '';
     this.disableAddPlants = false;
     this.firstCol = [];
     this.secondCol = [];
@@ -505,6 +515,7 @@ export class Main2Component implements OnInit {
  
 
   /*** calculates when to stop allowing user to ad plants in staging area ***/
+  ///Do not think i need this
   gardenfull() {
     if(this.garden.length == this.xGardenMax){
       return true;
