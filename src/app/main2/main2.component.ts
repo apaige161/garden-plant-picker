@@ -284,6 +284,7 @@ export class Main2Component implements OnInit {
 
 
   //holds the value of each column of plants
+  /** TODO: NEED this????? */
   savePlants: [FullPlant[]];
 
   /********************************
@@ -316,8 +317,16 @@ export class Main2Component implements OnInit {
 
       //check input name to existing names to validate
       //break out of function if one is found
-      for (let index = 0; index < this.gardenNames.length; index++) {
-        console.log(this.gardenNames[index]);
+      
+
+      for (let index = 0; index <= this.gardenNames.length; index++) {
+        console.log(index + ".) " + this.gardenNames[index]);
+        
+        if(this.gardenNames.length = 0) {
+          this.saveDisable = false;
+            console.log("no current gardens, allow save")
+        }
+        
 
         if(this.gardenNames[index] != this.gardenName){
           this.saveDisable = false;

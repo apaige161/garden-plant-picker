@@ -232,17 +232,62 @@
 
 
 
-    <div class="form-group">
-      <label for="gardens">Filter Gardens</label>
-      <select class="form-control" id="gardens"
-              required
-              [(ngModel)]="Garden" name="gardens"
-              #gardens="ngModel">
-        <option *ngFor="let singleGarden of singleGardenNames" [value]="singleGarden">{{singleGarden}}</option>
-      </select>
+    <div class="form-group row">
+      <div class="col-10">
+        <label for="gardens">Filter Gardens</label>
+        <select class="form-control" id="gardens"
+                required
+                [(ngModel)]="Garden" name="gardens"
+                #gardens="ngModel">
+          <option *ngFor="let singleGarden of singleGardenNames" [value]="singleGarden">{{singleGarden}}</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <button (click)="onGardenFilterClear()" class="btn btn-primary">Clear</button>
+      </div>
     </div>
 
-        <button (click)="onGardenFilterClear()" class="btn btn-primary">Clear</button>
+    <!-- display a user's garden in rows/columns they entered-->
+    <div class="saved-gardens row">
+      <div class="col-12">
+        <h1>Garden Name: {{Garden}}</h1>
+      </div>
+      
+      <div class="row">
+        <!-- loop through all plants in DB -->
+        <!-- filters by gardenName , then sorts alphabetically by plant -->
+        <!-- sort will sort by the parameter inside [''] -->
+        <!-- to filter as user is typing use =>> filter: Garden:'garden' -->
+        <div *ngFor="let plant of plants 
+        | filter: Garden :'garden'
+        | sort: ['col'] : ['garden']
+        | sort:[SortByParam, SortDirection] "
+        >
+          <div *ngIf="plant.col == 1" class="col-3">
+            <div>column: {{ plant.col }}</div>
+            <div>plant: {{ plant.plant }}</div>
+          </div>
+          <div *ngIf="plant.col == 2" class="col-3">
+            <div>column: {{ plant.col }}</div>
+            <div>plant: {{ plant.plant }}</div>
+          </div>
+          <div *ngIf="plant.col == 3" class="col-3"> 
+            <div>column: {{ plant.col }}</div>
+            <div>plant: {{ plant.plant }}</div>
+          </div>
+          <div *ngIf="plant.col == 4" class="col-3">
+            <div>column: {{ plant.col }}</div>
+            <div>plant: {{ plant.plant }}</div>
+          </div>
+        </div>
+      </div>
+      
+
+
+
+
+
+    </div>
 
     
 
