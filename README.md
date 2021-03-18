@@ -5,6 +5,7 @@ INSTRUCTIONS: download this repo and garden-plant-picker-rest-api
 -ng serve on garden-plant-picker/my-garden
 
 BUGS: 
+
   -user has to click refresh plants after adding a new garden to see it in the list of gardens and to see any gardens to filter from
   
   -error mess in console... "ERROR TypeError: Cannot read property 'forEach' of undefined
@@ -24,7 +25,7 @@ TODO: Primary
   
   -create a better UI for displaying saved plants from the DB
     -create a plant card to display each plant with various details
-    -create multiple tables, one to store info about each column (plant.col)
+    -look at css grid to dynamically and conditionally display col/rows
 
   build the math to see how much an optimal garden will produce based on the plants inside
    
