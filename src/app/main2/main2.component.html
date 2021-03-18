@@ -247,45 +247,6 @@
       <div class="col-2">
         <button (click)="onGardenFilterClear()" class="btn btn-primary">Clear</button>
       </div>
-    </div>
-
-    <!-- display a user's garden in rows/columns they entered-->
-    <div class="saved-gardens row">
-      <div class="col-12">
-        <h1>Garden Name: {{Garden}}</h1>
-      </div>
-      
-      <div class="row">
-        <!-- loop through all plants in DB -->
-        <!-- filters by gardenName , then sorts alphabetically by plant -->
-        <!-- sort will sort by the parameter inside [''] -->
-        <!-- to filter as user is typing use =>> filter: Garden:'garden' -->
-        <div *ngFor="let plant of plants
-        | filter: Garden :'garden'
-        | sort: ['col'] : ['garden']
-        | sort:[SortByParam, SortDirection] "
-        class="cardList"
-        >
-          <div *ngIf="plant.col == 1" class="card">Card</div>
-          <div *ngIf="plant.col == 2" class="card">Card</div>
-          <div *ngIf="plant.col == 3" class="card">Card</div>
-          <div *ngIf="plant.col == 4" class="card">Card</div>
-
-        </div>
-      </div>
-      
-
-
-
-
-
-    </div>
-
-    
-
-
-      <!-- <button (click)="onGardenFilterClear()" class="btn btn-primary">Clear</button> -->
-
       <label>Sort by: </label>
       <select [(ngModel)]='SortByParam' >
           <option value="garden">Garden Name</option>
@@ -295,36 +256,106 @@
           <option value="zone">Zone</option>
       </select>
       <button (click)="onSortDirection()" class="btn btn-primary">Toggle ascending and descending</button>
+    </div>
 
-    
-    <table class="table">
-      <thead>
-          <th>Column</th>
-          <th>Garden Name</th>
-          <th>Plant</th>
-          <th>Season</th>
-          <th>Density</th>
-          <th>Delete</th>
-      </thead>
-      <tbody>
-          <!-- loop through all plants in DB -->
-          <!-- filters by gardenName , then sorts alphabetically by plant -->
-          <!-- sort will sort by the parameter inside [''] -->
-          <!-- to filter as user is typing use =>> filter: Garden:'garden' -->
-          <tr *ngFor="let plant of plants 
+    <!-- display a user's garden in rows/columns they entered-->
+    <div class="saved-gardens row">
+      <div class="col-12">
+        <h1>Garden Name: {{Garden}}</h1>
+      </div>
+    </div>
+
+      <!-- 4 column layout for saved gardens -->
+
+      <div class="row">
+
+        <!-- col 1 only-->
+        <div class="column" style="background-color:#aaa;">
+          <div *ngFor="let plant of plants
             | filter: Garden :'garden'
             | sort: ['col'] : ['garden']
-            | sort:[SortByParam, SortDirection] "
-          >
+            | sort:[SortByParam, SortDirection]">
+          
+            <!-- display first column -->
+            <div >
+              <div *ngIf="plant.col == 1" class="card">
+                
+                <div class="row">
+                  {{plant.plant | titlecase}} 
+                </div>
+                <div class="row">
+                  x {{plant.perFoot}}
+                </div>
+                
+                
 
-              <td>{{ plant.col }}</td>
-              <td>{{ plant.garden | uppercase}}</td>
-              <td>{{ plant.plant }}</td>
-              <td>{{ plant.season }}</td>
-              <td>{{ plant.perFoot }}</td>
-              <td><button (click)="deletePlant(plant._id)" class="btn btn-warning m-2">Delete</button></td>
-          </tr>
-      </tbody>
-    </table>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  
+        <!-- col 2 only-->
+        <div class="column" style="background-color:#aaa;">
+          <div *ngFor="let plant of plants
+            | filter: Garden :'garden'
+            | sort: ['col'] : ['garden']
+            | sort:[SortByParam, SortDirection]">
+          
+            <!-- display first column -->
+            <div >
+              <div *ngIf="plant.col == 2" class="card">
+                <div class="row">
+                  {{plant.plant | titlecase}} 
+                </div>
+                <div class="row">
+                  x {{plant.perFoot}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- col 3 only-->
+        <div class="column" style="background-color:#aaa;">
+          <div *ngFor="let plant of plants
+            | filter: Garden :'garden'
+            | sort: ['col'] : ['garden']
+            | sort:[SortByParam, SortDirection]">
+          
+            <!-- display first column -->
+            <div >
+              <div *ngIf="plant.col == 3" class="card">
+                <div class="row">
+                  {{plant.plant | titlecase}} 
+                </div>
+                <div class="row">
+                  x {{plant.perFoot}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- col 4 only-->
+        <div class="column" style="background-color:#aaa;">
+          <div *ngFor="let plant of plants
+            | filter: Garden :'garden'
+            | sort: ['col'] : ['garden']
+            | sort:[SortByParam, SortDirection]">
+          
+            <!-- display first column -->
+            <div >
+              <div *ngIf="plant.col == 4" class="card">
+                <div class="row">
+                  {{plant.plant | titlecase}} 
+                </div>
+                <div class="row">
+                  x {{plant.perFoot}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
