@@ -510,8 +510,18 @@ export class Main2Component implements OnInit {
   clearColumn(column) {
     //remove this many plants from progress
     this.progress -= (column.length * this.factor);
-    //reset col
-    this.firstCol = [];
+
+    if(column == this.firstCol) {
+      //reset col
+      this.firstCol = [];
+    } else if(column == this.secondCol) {
+      this.secondCol = [];
+    } else if(column == this.thirdCol) {
+      this.thirdCol = [];
+    } else if(column == this.fourthCol) {
+      this.fourthCol = [];
+    }
+    
 
     //if there is room in the garden allow adding of plants
     if(this.progress < 100) {

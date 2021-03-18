@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSliderModule} from '@angular/material/slider';
+import { PlantCardComponent } from './plant-card/plant-card.component';
 
 
 
@@ -42,7 +43,8 @@ import {MatSliderModule} from '@angular/material/slider';
     NewGardenComponent,
     SortAndFilterComponent,
     AdminComponent,
-    Main2Component
+    Main2Component,
+    PlantCardComponent
   ],
   imports: [
     BrowserModule,
