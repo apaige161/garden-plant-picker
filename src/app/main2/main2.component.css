@@ -2,24 +2,30 @@
   box-sizing: border-box;
 }
 
-.grid {
+  .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 15px;
-    max-height: 50%;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 3em;
+    grid-gap: 1em;
     align-items: center;
     text-align: center;
+    
   }
 
-  .garden-box {
-    border: dotted brown 4px;
+  .columns {
+    column-width: 200px;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
-  .raised-bed, .radio {
+
+  .radio {
     border: dotted tomato 5px;
     padding: 2rem;
-    margin: 20px 0;
+    align-items: center;
     text-align: center;
+    background: orange;
+    color: black;
   }
 
   .raised-bed-col{
@@ -30,7 +36,7 @@
   .plant-list{
     text-align: center;
     align-items: center;
-
+    background:cornflowerblue
   }
 
   .example-list {
@@ -86,15 +92,19 @@
 
   .card {
     display: block;
-    
+
     padding: 32px;
     border: 1px solid black;
     border-radius: 8px;
+    align-items: center;
+    text-align: center;
   }
 
-  .column {
+  .saved-garden-column {
     float: left;
-    width: 25%;
+    width: 20%;
+    align-items: center;
+    text-align: center;
   }
   
   /* Clear floats after the columns */
@@ -102,4 +112,8 @@
     content: "";
     display: table;
     clear: both;
+  }
+
+  .user-add {
+    background: grey;
   }

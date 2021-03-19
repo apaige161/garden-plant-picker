@@ -43,8 +43,8 @@ export class Main2Component implements OnInit {
   title = 'my-garden';
 
   //max number of square feet
-  xGardenMax: number = 2;
-  yGardenMax: number = 2;
+  xGardenMax: number = 4;
+  yGardenMax: number = 4;
 
   xGardenDisable: boolean = false;
   
