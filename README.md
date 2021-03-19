@@ -6,12 +6,17 @@ INSTRUCTIONS: download this repo and garden-plant-picker-rest-api
 
 BUGS: 
 
+  -user can still save a new garden with a already used name
+
   -user has to click refresh plants after adding a new garden to see it in the list of gardens and to see any gardens to filter from
   
   -error mess in console... "ERROR TypeError: Cannot read property 'forEach' of undefined
     at Main2Component.getEachGardenNameOnce"
     --may have to do with how things are loaded into the website (get all plants may be taking longer than it takes to start this function)
     --put that function on another lifecycle hook, ngOnAfterContentInit
+    
+   -if a user chooses not to fill up the entire row there is no way to go to the next row.
+      --add a button to skip the current row and start adding to the next one
     
 
 
@@ -21,11 +26,11 @@ FUTURE: sign in, get produce yeilds, nice UI/UX
 
 TODO: Primary
 
-  wrap list of plants(to choose from) to the next column 2-4 columns based on screen size
+  -wrap list of plants(to choose from) to the next column 2-4 columns to fit the screen
+ 
+  -center saved gardens
   
   -create a better UI for displaying saved plants from the DB
-    -create a plant card to display each plant with various details
-    -look at css grid to dynamically and conditionally display col/rows
 
   build the math to see how much an optimal garden will produce based on the plants inside
    
@@ -35,6 +40,10 @@ TODO: Primary
     -re run this function based on the value change of (gardenName)
     -put gardenName inside ngOnChanges function
    
+   -add user has planted feature, 
+    -calculate how much time is left til harvest
+    -progress bar or spinner to show how close
+      -make the progress spinner change color based on how many days are left
    
   Optimize
 
