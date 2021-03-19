@@ -45,6 +45,9 @@ TODO: Primary
     -progress bar or spinner to show how close
       -make the progress spinner change color based on how many days are left
    
+   -add footer, navbar
+   
+   
   Optimize
 
 UI: Secondary
