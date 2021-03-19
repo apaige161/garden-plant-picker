@@ -21,18 +21,10 @@ export class Main2Component implements OnInit {
 
   /**
    * App allows user to: 
-   *  select the saize of their raised bed
+   *  select the size of their raised bed
    *  stage plants to put into a raised bed
    *  save up to 4 arrays(columns) into a single saved garden bed
    * 
-   * TODO:
-   *  send savePlants to the api to store data
-   * 
-   *  get saved data from api
-   * 
-   *  update data by savePlants:id
-   * 
-   *  delete data by savePlants:id
    * 
    * 
    */
@@ -663,6 +655,7 @@ export class Main2Component implements OnInit {
     
   }
 
+  //TODO: get all changes of gardenName
 
 
   
