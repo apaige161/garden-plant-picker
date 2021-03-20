@@ -24,9 +24,11 @@ import { AdminComponent } from './admin/admin.component';
 import { Main2Component } from './main2/main2.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatTableModule } from'@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatTableModule } from'@angular/material/table';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 import { PlantCardComponent } from './plant-card/plant-card.component';
 
 
@@ -60,6 +62,7 @@ import { PlantCardComponent } from './plant-card/plant-card.component';
     MatProgressBarModule,
     MatSliderModule,
     MatTableModule,
+    MatGridListModule,
 
 
   ],

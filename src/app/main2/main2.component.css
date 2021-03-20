@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+.main-banner {
+  width: 95%;
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -34,12 +41,9 @@
   }
 
   .plant-list{
-    /*
-    display: flex;
-    flex-wrap: wrap;
-    */
-    text-align: center;
+
     align-items: center;
+    text-align: center;
     background:cornflowerblue
   }
 

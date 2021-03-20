@@ -1,55 +1,23 @@
 <div class="container-fluid">
-  
-  <div class="justify-content-center align-items-center">
-
-    <div class="col-12">
-      <h1>Navbar placeholder</h1>
-      <h2>The raised bed is {{xGardenMax}}' x {{yGardenMax}}'</h2>
-    </div>
-  </div>
 
 
 
-  <!-- user to plant list -->
-  <div class="justify-content-center align-items-center user-add">
-    <div class="row">
-      <!-- plant list -->
-      <div class="col-lg-6 col-sm-12 justify-content-center align-items-center plant-list">
-        <p>Click the plant for more info.</p>
-        <div *ngFor="let item of fullPlant; index as i" >
-          <div class="grid flex" >
-            <div type="button" class="btn btn-light mb-1"
-              popover=
-              "Plant {{item.perFoot}} 
-              per foot in {{item.season}}. 
-              Zone: {{item.zone}}"
-              [outsideClick]="true">
+  <div class="main-banner">
 
-              <button class="btn btn-primary mb-3 col-8">{{item.plant | titlecase}}</button>
-              
-              <button 
-                (click)="this.totalPossiblePlants()"
-                (click)="this.calculateProgress()"
-                (click)="addToGarden(i)" 
-                (click)="correctColumns()" 
-                (click)="addToProgressBar()"
-                (click)="disableGardenMax()"
-                (click)="canSave()"
-                
-                class="btn btn-success mb-3 col-2"
-                [disabled]="disableAddPlants"
-              >+</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- main banner -->
+    <div class="row ">
+
       <!-- user to select size and see plants added -->
       <div class="radio col-lg-6 col-sm-12 add-plant-list"> <!-- new garden input -->
+
+        <!-- size sliders and name row -->
         <div class="row">
+          <!-- slider to choose xGardenMax, yGardenMax -->
           <div class="col-6">
             <div class="row">
+
+              <!-- slider to choose xGardenMax -->
               <div class="col-6">
-                <!-- slider to choose xGardenMax-->
                 <h1>Rows: {{xGardenMax}}</h1>
                 <mat-slider 
                   #xGarden
@@ -58,9 +26,10 @@
                   [(ngModel)]="xGardenMax" min="1" max="4" step="1"
                   [disabled]="xGardenDisable" ></mat-slider>
               </div>
-              
+
+              <!-- slider to choose yGardenMax -->
               <div class="col-6">
-                <!-- slider to choose yGardenMax-->
+                
                 <h1>Length: {{yGardenMax}}</h1>
                 <mat-slider 
                   #yGarden
@@ -71,10 +40,10 @@
                   [(ngModel)]="yGardenMax"  min="1" max="8" step="1"
                   [disabled]="yGardenDisable" ></mat-slider>
               </div>
+
             </div>
           </div>
-
-          
+          <!-- Garden name input form -->
           <div class="col-6">
             <h2>Name this garden bed:</h2>
             <input type="text" class="form-control" #name 
@@ -96,29 +65,26 @@
         </div>
       
 
-        <div class="">
 
-          <div class="row raised-bed">
-            <!-- Displays the number of columns based on user input -->
-            <!-- Creates a full garden bed -->
-            <!-- name only -->
-            <div class="container">
-              
-
-              <h4>
-                <div>Progress {{progress | number: '1.0-0'}} %   </div>
-                
-                <button (click)="resetProgress()" class="btn btn-primary">Reset Progress</button>
-              </h4>
-              <!-- Progress bar -->
-              <mat-progress-bar mode="determinate" [value]="progress" min="0"></mat-progress-bar><br>
-              
-              
-
-            </div>
+        <!-- Creates a garden bed -->
+        <div class="row raised-bed">
           
+          <!-- progress bar -->
+          <div class="container">
+            <h4>
+              <div>Progress {{progress | number: '1.0-0'}} %   </div>
+              <button (click)="resetProgress()" class="btn btn-primary">Reset Progress</button>
+            </h4>
+            <!-- Progress bar -->
+            <mat-progress-bar mode="determinate" [value]="progress" min="0"></mat-progress-bar><br>
+          </div>
+        
+          <!-- 
+            
+            Displays the number of columns based on user input 
           
-          
+          -->
+      
           <!-- displays only when col 1 is displayed -->
           <div class="col-3 raised-bed-col" >
             <icon-seedling></icon-seedling>
@@ -214,11 +180,47 @@
                 <button (click)="clearColumn(fourthCol)" (click)="calculateProgress()" class="btn btn-info mb-1">Remove Column</button>
               </div>
           </div>
-        </div>
-      </div><!-- end of plant columns -->
+
+        </div><!-- end of plant columns -->
       </div>
-    </div>
+
+      <!-- plant list -->
+      <div class="col-lg-6 plant-list">
+        <div class="row">
+          <div class="col-4 " *ngFor="let item of fullPlant; index as i">
+            <button class="btn btn-primary mb-3 col-8 "
+              popover=
+              "Plant {{item.perFoot}} 
+              per foot in {{item.season}}. 
+              Zone: {{item.zone}}"
+              [outsideClick]="true">
+              {{item.plant | titlecase}}
+            </button>
+            
+            <button 
+              (click)="this.totalPossiblePlants()"
+              (click)="this.calculateProgress()"
+              (click)="addToGarden(i)" 
+              (click)="correctColumns()" 
+              (click)="addToProgressBar()"
+              (click)="disableGardenMax()"
+              (click)="canSave()"
+              class="btn btn-success mb-3 col-2"
+              [disabled]="disableAddPlants"
+            >+</button>
+          </div>
+        </div>
+      </div><!-- plant list -->
+
+      
+
+    </div><!-- end of main banner -->
+
   </div>
+
+  
+
+
     
   
       
