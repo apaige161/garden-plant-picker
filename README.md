@@ -24,39 +24,44 @@ RIGHT NOW: A user can choose a garden size, add new gardens with at least one pl
 
 FUTURE: sign in, get produce yeilds, nice UI/UX
 
+VISION: 
+   -single page with a small button in the middle "Get Started" or something
+    => animate into home page
+   
+   -add an image for each veggie inside the popover
+
 TODO: Primary
 
-  -wrap list of plants(to choose from) to the next column 2-4 columns to fit the screen
- 
-  -center saved gardens
-  
-  -create a better UI for displaying saved plants from the DB
-
-  build the math to see how much an optimal garden will produce based on the plants inside
+  -build the math to see how much an optimal garden will produce based on the plants inside
    
-  split main2 into separate components, move the saved gardens to another page?
+  -split main2 into separate components, move the saved gardens to another page!
   
-  canSave() method - loads in list of gardenNames, put (gardenNames) inside a ngOnChanges hook
+  -canSave() method - loads in list of gardenNames, put (gardenNames) inside a ngOnChanges hook
     -re run this function based on the value change of (gardenName)
     -put gardenName inside ngOnChanges function
    
-   -add user has planted feature, 
-    -calculate how much time is left til harvest
-    -progress bar or spinner to show how close
-      -make the progress spinner change color based on how many days are left
-   
-  Optimize
+   -create login system on front and backend
+  
 
-UI: Secondary
-   single page with a small button in the middle "Get Started" or something
-   => animate into home page
-   add an image for each veggie inside the popover
+UI: Primary
+
+   TODO:
+    -create a better UI for displaying saved plants from the DB
+    -center plant list, flexbox??
+    -update the main banner
+    -create nav bar
+    -create a home page
+    -create login page
+    -create signup page
 
    
 OTHER: Secondary
-  add in potential yields for each crop
-  add buttons with functions to calculate: total yield, per plant?, yield by plant, etc
-
+  -add user has planted feature, 
+    -calculate how much time is left til harvest
+    -progress bar or spinner to show how close
+      -make the progress spinner change color based on how many days are left
+      
+  -Optimize
 
 
 
