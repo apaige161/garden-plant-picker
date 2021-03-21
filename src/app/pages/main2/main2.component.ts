@@ -12,6 +12,7 @@ import {MatTableModule } from'@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main2.component.html',
