@@ -32,6 +32,10 @@ VISION:
 
 TODO: Primary
 
+  -create planned gardens page
+      -display each garden for a given user, filter by gardenName
+      ---migrate saved gardens to this page
+
   -build the math to see how much an optimal garden will produce based on the plants inside
    
   -split main2 into separate components, move the saved gardens to another page!
@@ -41,20 +45,40 @@ TODO: Primary
     -put gardenName inside ngOnChanges function
    
    -create login system on front and backend
+   
+   -fix hamburger menu in mobil to work
   
 
 UI: Primary
 
    TODO:
+   
+    -create content for about the author section
+   
     -create a better UI for displaying saved plants from the DB
     
     -update the main banner
+      -"layoutshift" hurting performance
     
     --done-create nav bar
-      -set routes
       -move highlighted link to current page
       
-    -create a home page
+    --done-create a home page
+      -need content
+      -step 1 sign up
+      
+      -step 2 plan a garden
+        -get potential yields
+        -print out layout
+        
+      -step 3 plant garden
+        -watch virtual progress in real time
+          -days to harvest
+      
+    --done-create a about page
+      -need content
+      
+    
     
     -do these with the Oauth implementation
       -create login page
