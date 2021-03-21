@@ -27,6 +27,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from'@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { NgxPrintModule } from 'ngx-print';
 
 import { PlantCardComponent } from './plant-card/plant-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -75,7 +76,7 @@ import { GardensComponent } from './pages/gardens/gardens.component';
     MatSliderModule,
     MatTableModule,
     MatGridListModule,
-
+    NgxPrintModule,
 
   ],
   providers: [

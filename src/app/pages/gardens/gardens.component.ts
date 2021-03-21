@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { PlantServerService } from 'src/app/services/plant-server.service';
 import { SinglePlant } from 'src/app/single-plant';
 
+import {NgxPrintModule} from 'ngx-print';
+
 @Component({
   selector: 'app-gardens',
   templateUrl: './gardens.component.html',
@@ -104,8 +106,7 @@ export class GardensComponent implements OnInit {
     ngOnInit() {
 
       this.allPlantsinit();
-      this.getEachGardenNameOnce();
-      this.removeDuplicates(this.gardenNames);
+
     }
 
 
