@@ -20,7 +20,7 @@ import { SortPipe } from './pipes/sort.pipe';
 import { NewGardenComponent } from './new-garden/new-garden.component';
 import { SortAndFilterComponent } from './sort-and-filter/sort-and-filter.component';
 import { AdminComponent } from './admin/admin.component';
-import { Main2Component } from './main2/main2.component';
+import { Main2Component } from './pages/main2/main2.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -30,6 +30,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 import { PlantCardComponent } from './plant-card/plant-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 
 
@@ -47,7 +52,12 @@ import { NavbarComponent } from './navbar/navbar.component';
     AdminComponent,
     Main2Component,
     PlantCardComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent,
+    SignUpComponent,
+    LoginComponent,
+    AboutComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

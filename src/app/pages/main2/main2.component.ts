@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
-import { SinglePlant } from '../single-plant';
-import { FullPlant } from './../full-plant';
-import { PlantServerService } from './../services/plant-server.service';
+import { SinglePlant } from '../../single-plant';
+import { FullPlant } from '../../full-plant';
+import { PlantServerService } from '../../services/plant-server.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -29,7 +30,11 @@ export class Main2Component implements OnInit {
    * 
    */
 
-  constructor(private plantService: PlantServerService, private http: HttpClient) { }
+  constructor(private plantService: PlantServerService, 
+    private http: HttpClient, 
+    private route: ActivatedRoute,) {
+    
+   }
 
   @Input()
   title = 'my-garden';
@@ -646,6 +651,7 @@ export class Main2Component implements OnInit {
   }
 
   ngOnInit() {
+
     this.allPlantsinit();
     
     this.totalPossiblePlants();
