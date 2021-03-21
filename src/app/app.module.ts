@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconSeedlingComponent } from './icon-seedling/icon-seedling.component';
-import { NavComponent } from './nav/nav.component';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
@@ -30,6 +29,7 @@ import { MatTableModule } from'@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
 
 import { PlantCardComponent } from './plant-card/plant-card.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -37,7 +37,6 @@ import { PlantCardComponent } from './plant-card/plant-card.component';
   declarations: [
     AppComponent,
     IconSeedlingComponent,
-    NavComponent,
     PlantsFromServerComponent,
     PlantsApiComponent,
     MainComponent,
@@ -47,7 +46,8 @@ import { PlantCardComponent } from './plant-card/plant-card.component';
     SortAndFilterComponent,
     AdminComponent,
     Main2Component,
-    PlantCardComponent
+    PlantCardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
