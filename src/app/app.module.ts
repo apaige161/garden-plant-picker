@@ -35,6 +35,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { GardensComponent } from './pages/gardens/gardens.component';
 
 
 
@@ -57,7 +58,8 @@ import { ProductsComponent } from './pages/products/products.component';
     SignUpComponent,
     LoginComponent,
     AboutComponent,
-    ProductsComponent
+    ProductsComponent,
+    GardensComponent
   ],
   imports: [
     BrowserModule,

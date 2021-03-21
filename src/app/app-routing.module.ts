@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { GardensComponent } from './pages/gardens/gardens.component';
 
 const routes: Routes = [
 
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: "signup",
     component: SignUpComponent
+  },
+
+  {
+    path: "gardens",
+    component: GardensComponent
   },
 
   {
