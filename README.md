@@ -47,12 +47,18 @@ UI: Primary
 
    TODO:
     -create a better UI for displaying saved plants from the DB
-    -center plant list, flexbox??
+    
     -update the main banner
-    -create nav bar
+    
+    --done-create nav bar
+      -set routes
+      -move highlighted link to current page
+      
     -create a home page
-    -create login page
-    -create signup page
+    
+    -do these with the Oauth implementation
+      -create login page
+      -create signup page
 
    
 OTHER: Secondary
