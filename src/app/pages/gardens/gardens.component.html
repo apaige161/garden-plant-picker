@@ -8,7 +8,8 @@
             <h1 class="display-4">User Gardens</h1>
             <p class="lead">This is where you can see saved garden designs and print them out!</p>
             <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p>If the print preview shows uneven rows or any weird behavior, set the print margins to none.</p>
+            <p>Print margins will be under "more settings" >> "margins" select none </p>
             <button
                 class="btn btn-success"
                 [useExistingCss]="true"
@@ -63,8 +64,8 @@
   <!-- 4 column layout for saved gardens -->
 
   <!-- TODO:// overflow is on scroll, weird but works for now-->
-  <div class="row saved-garden-grid" id="print-section">
-    <div class="col-12 mt-2" >
+  <div class="row saved-garden-grid pt-4" id="print-section">
+    <div class="col-12" >
       <h1>Garden Name: {{Garden | titlecase}}</h1>
     </div>
     <!-- col 1 only-->
