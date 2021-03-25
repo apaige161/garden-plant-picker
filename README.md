@@ -28,6 +28,8 @@ VISION:
 TODO: Primary
 
   -create login system on front and backend
+    -create crud function on a user
+    -
 
   -build the math to see how much an optimal garden will produce based on the plants inside
     -days to harvest from seed (days)
