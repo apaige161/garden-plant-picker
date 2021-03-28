@@ -56,7 +56,7 @@ export class SignUpComponent implements OnInit {
     fullName: new FormControl ('', Validators.required),
     email: new FormControl ('', Validators.required),
     password: new FormControl ('', Validators.required),
-    zone: new FormControl ('', Validators.required),
+    zone: new FormControl ('7b', Validators.required),
   })
 
   onSubmit() {

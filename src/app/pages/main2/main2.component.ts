@@ -37,6 +37,7 @@ export class Main2Component implements OnInit {
     
    }
 
+
   @Input()
   title = 'my-garden';
 
@@ -657,8 +658,7 @@ export class Main2Component implements OnInit {
     
     this.totalPossiblePlants();
     this.calculateProgress();
-    this.getEachGardenNameOnce();
-    this.removeDuplicates(this.gardenNames);
+
     
   }
 
