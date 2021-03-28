@@ -11,7 +11,8 @@ BUGS:
    -if a user chooses not to fill up the entire row there is no way to go to the next row.
       --add a button to skip the current row and start adding to the next one
     
-    -print garden layout col 1 is longer than the rest
+   -send server an array instaed of each individual plant
+  
 
 
 RIGHT NOW: A user can choose a garden size, add new gardens with at least one plant in them, filter and sort saved gardens.
@@ -26,15 +27,22 @@ VISION:
 
 TODO: Primary
 
+  -create login system on front and backend
+    -create crud function on a user
+    -
+
   -build the math to see how much an optimal garden will produce based on the plants inside
+    -days to harvest from seed (days)
+    -days to harvest from small plant (days)
+    -how much yield from each plant over the course of a harvest (ounces, pounds)
    
   -canSave() method - loads in list of gardenNames, put (gardenNames) inside a ngOnChanges hook
     -re run this function based on the value change of (gardenName)
     -put gardenName inside ngOnChanges function
-   
-   -create login system on front and backend
-   
+  
    -fix hamburger menu in mobil to work
+   
+   -add a delete garden, delete the array
   
 
 UI: Primary
