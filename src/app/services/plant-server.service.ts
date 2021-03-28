@@ -29,6 +29,11 @@ export class PlantServerService {
     _id: "",
     plant: "",
     season: "",
+    zone: "",
+    perFoot: 0,
+    xGarden: 0,
+    yGarden: 0,
+    col: 0,
   }
 
   constructor(private http: HttpClient) {}
