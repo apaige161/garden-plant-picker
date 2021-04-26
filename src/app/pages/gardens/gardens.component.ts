@@ -106,7 +106,6 @@ export class GardensComponent implements OnInit {
     ngOnInit() {
 
       this.allPlantsinit();
-
     }
 
 

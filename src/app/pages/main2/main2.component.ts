@@ -301,7 +301,7 @@ export class Main2Component implements OnInit {
   /*** Add validation to not allow saving unnamed gardens **/
 
   // true = disabled
-  saveDisable: boolean = true;
+  saveDisable: boolean = false;
 
   
 

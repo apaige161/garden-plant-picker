@@ -12,12 +12,15 @@ import { AboutComponent } from './pages/about/about.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { GardensComponent } from './pages/gardens/gardens.component';
 import { UserComponent } from './user/user.component';
+import { 
+  AuthGuardService as AuthGuard 
+} from './services/auth-guard.service';
 
 const routes: Routes = [
 
   {
     path: "",
-    component: HomeComponent
+    component: HomeComponent, canActivate: [AuthGuard]
   },
 
   {
